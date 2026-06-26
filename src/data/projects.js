@@ -52,7 +52,7 @@ export const websites = [
   },
   {
     title: 'ONC SPS',
-    description: 'Sermon Presentation System — internal tool for managing and displaying church presentations live.',
+    description: 'Shepherd reporting system for Overcomers Nation Church — tracks and logs all activities of shepherds across the church.',
     link: 'https://github.com/aa-Teye/ONC-SPS',
     stack: ['HTML', 'CSS', 'JavaScript'],
   },
@@ -64,13 +64,13 @@ export const websites = [
   },
   {
     title: 'Korbly Investment Partners',
-    description: 'Corporate website for an investment firm — clean design with service overview and contact.',
+    description: 'Professional website for Korbly Investment Partners — showcasing investment services, portfolio, and firm contact.',
     link: 'https://github.com/aa-Teye/korbly',
     stack: ['JavaScript', 'CSS'],
   },
   {
     title: 'PropCollect',
-    description: 'Ghana Property Rate System — web platform for local authorities to collect and track property rates.',
+    description: 'Property rate collection platform for local authorities — digitising the process of tracking and managing property rates in Ghana.',
     link: 'https://github.com/aa-Teye/Prop_collect',
     stack: ['HTML', 'CSS', 'JavaScript'],
   },
