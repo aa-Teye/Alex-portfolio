@@ -28,17 +28,14 @@ function findAnswer(input, fallback) {
 export function useFaqBot() {
   const { t, i18n } = useTranslation();
   const [messages, setMessages] = useState([{ role: 'bot', text: t('bot.greeting') }]);
-  const [showChips, setShowChips] = useState(true);
 
   useEffect(() => {
     setMessages([{ role: 'bot', text: t('bot.greeting') }]);
-    setShowChips(true);
   }, [i18n.language]);
 
   function send(question) {
     if (!question.trim()) return;
     const answer = findAnswer(question, t('bot.fallback'));
-    setShowChips(false);
     setMessages((m) => [
       ...m,
       { role: 'user', text: question },
@@ -46,5 +43,5 @@ export function useFaqBot() {
     ]);
   }
 
-  return { messages, showChips, send };
+  return { messages, send };
 }

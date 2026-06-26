@@ -8,9 +8,10 @@ export default function FaqBot() {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
-  const { messages, showChips, send } = useFaqBot();
+  const { messages, send } = useFaqBot();
   const msgsRef = useRef(null);
   const inputRef = useRef(null);
+  const chipsRef = useRef(null);
 
   useEffect(() => {
     if (msgsRef.current) msgsRef.current.scrollTop = msgsRef.current.scrollHeight;
@@ -24,6 +25,14 @@ export default function FaqBot() {
     if (!input.trim()) return;
     send(input);
     setInput('');
+  };
+
+  const handleChip = (chip) => {
+    send(chip);
+    setInput('');
+    setTimeout(() => {
+      if (chipsRef.current) chipsRef.current.scrollLeft = 0;
+    }, 100);
   };
 
   return (
@@ -56,8 +65,8 @@ export default function FaqBot() {
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             style={{
               position: 'fixed', bottom: '92px', right: '24px', zIndex: 50,
-              width: '360px', maxWidth: 'calc(100vw - 48px)',
-              height: '500px', maxHeight: 'calc(100vh - 140px)',
+              width: '380px', maxWidth: 'calc(100vw - 48px)',
+              height: '540px', maxHeight: 'calc(100vh - 140px)',
               background: 'var(--bg2)',
               border: '1px solid var(--border)',
               borderRadius: '16px',
@@ -86,12 +95,25 @@ export default function FaqBot() {
               >
                 AB
               </div>
-              <div>
+              <div style={{ flex: 1 }}>
                 <div style={{ fontSize: '0.88rem', fontWeight: 600, color: '#E8EDF4' }}>AlexBot</div>
                 <div className="mono" style={{ fontSize: '0.68rem', color: '#5C6A82' }}>
-                  Ask me about Alex — no AI, instant answers
+                  {messages.length - 1} questions answered · instant replies
                 </div>
               </div>
+              <button
+                onClick={() => setOpen(false)}
+                style={{
+                  background: 'none', border: 'none', color: '#5C6A82',
+                  cursor: 'pointer', fontSize: '1rem', padding: '4px',
+                  lineHeight: 1, borderRadius: '4px',
+                  transition: 'color 0.2s',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#E8EDF4')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#5C6A82')}
+              >
+                ✕
+              </button>
             </div>
 
             {/* messages */}
@@ -110,10 +132,10 @@ export default function FaqBot() {
                   transition={{ duration: 0.2 }}
                   style={{
                     fontSize: '0.85rem',
-                    lineHeight: 1.6,
+                    lineHeight: 1.65,
                     padding: '10px 13px',
                     borderRadius: '12px',
-                    maxWidth: '88%',
+                    maxWidth: '90%',
                     whiteSpace: 'pre-line',
                     ...(m.role === 'bot'
                       ? {
@@ -137,43 +159,75 @@ export default function FaqBot() {
               ))}
             </div>
 
-            {/* suggested chips */}
-            {showChips && (
+            {/* quick questions — always visible, scrollable */}
+            <div
+              style={{
+                borderTop: '1px solid var(--border)',
+                padding: '8px 12px 6px',
+                flexShrink: 0,
+                background: 'rgba(255,255,255,0.01)',
+              }}
+            >
               <div
+                className="mono"
                 style={{
-                  display: 'flex', flexWrap: 'wrap', gap: '6px',
-                  padding: '0 16px 10px', flexShrink: 0,
+                  fontSize: '0.62rem',
+                  color: '#4A5568',
+                  letterSpacing: '0.8px',
+                  textTransform: 'uppercase',
+                  marginBottom: '6px',
+                }}
+              >
+                Quick questions
+              </div>
+              <div
+                ref={chipsRef}
+                style={{
+                  display: 'flex',
+                  gap: '6px',
+                  overflowX: 'auto',
+                  paddingBottom: '4px',
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none',
                 }}
               >
                 {suggestedChips.map((c) => (
                   <button
                     key={c}
-                    onClick={() => { send(c); setInput(''); }}
+                    onClick={() => handleChip(c)}
                     className="mono"
                     style={{
-                      fontSize: '0.68rem',
+                      fontSize: '0.67rem',
                       color: 'var(--accent)',
                       background: 'var(--accent-soft)',
                       border: '1px solid var(--accent-line)',
                       padding: '5px 10px',
                       borderRadius: '14px',
                       cursor: 'pointer',
-                      transition: 'background 0.2s',
+                      whiteSpace: 'nowrap',
+                      flexShrink: 0,
+                      transition: 'background 0.2s, color 0.2s',
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(224,179,65,0.2)')}
-                    onMouseLeave={(e) => (e.currentTarget.style.background = 'var(--accent-soft)')}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = 'rgba(224,179,65,0.2)';
+                      e.currentTarget.style.color = '#F0C750';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'var(--accent-soft)';
+                      e.currentTarget.style.color = 'var(--accent)';
+                    }}
                   >
                     {c}
                   </button>
                 ))}
               </div>
-            )}
+            </div>
 
             {/* input */}
             <div
               style={{
                 display: 'flex', gap: '8px',
-                padding: '12px 16px',
+                padding: '10px 12px 12px',
                 borderTop: '1px solid var(--border)',
                 flexShrink: 0,
               }}
@@ -202,7 +256,10 @@ export default function FaqBot() {
                   border: 'none', borderRadius: '10px',
                   width: '38px', fontSize: '1rem', cursor: 'pointer',
                   transition: 'opacity 0.2s',
+                  flexShrink: 0,
                 }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
               >
                 →
               </button>
