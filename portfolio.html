@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Alex Teye Ametepey — Backend Architect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0A0E14;
+  --bg2:#0F1620;
+  --slate-50:#E8EDF4;
+  --slate-100:#CCD6E6;
+  --slate-200:#A6B3C7;
+  --slate-300:#8694AB;
+  --slate-400:#5C6A82;
+  --accent:#E0B341;
+  --accent-soft:rgba(224,179,65,0.12);
+  --accent-line:rgba(224,179,65,0.25);
+  --card:rgba(20,28,40,0.4);
+  --border:rgba(120,140,170,0.12);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--slate-200);
+  line-height:1.6;
+  font-size:15px;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--accent-soft);color:var(--accent)}
+
+/* cursor spotlight */
+#spotlight{
+  position:fixed;inset:0;z-index:1;pointer-events:none;
+  transition:background 0.1s;
+}
+
+.mono{font-family:'JetBrains Mono',monospace}
+a{color:inherit;text-decoration:none}
+
+/* LAYOUT */
+.wrap{max-width:1180px;margin:0 auto;padding:0 3rem;position:relative;z-index:2}
+.layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:3rem;min-height:100vh}
+
+/* LEFT STICKY PANEL */
+.left{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:5.5rem 0 4rem}
+.intro h1{font-size:2.8rem;font-weight:800;color:var(--slate-50);letter-spacing:-0.02em;line-height:1.05}
+.intro h2{font-size:1.15rem;font-weight:500;color:var(--slate-100);margin-top:0.6rem}
+.intro .tagline{color:var(--slate-300);margin-top:1rem;max-width:340px;font-size:0.95rem;line-height:1.6}
+.intro .accent-text{color:var(--accent);font-weight:500}
+.avail{display:inline-flex;align-items:center;gap:8px;margin-top:1.5rem;font-size:0.8rem;color:var(--accent);font-family:'JetBrains Mono',monospace}
+.avail .dot{width:7px;height:7px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 0 rgba(224,179,65,0.5);animation:ring 2s infinite}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(224,179,65,0.5)}70%{box-shadow:0 0 0 8px rgba(224,179,65,0)}100%{box-shadow:0 0 0 0 rgba(224,179,65,0)}}
+
+/* NAV scroll-spy */
+nav.spy{margin-top:3.5rem}
+nav.spy ul{list-style:none}
+nav.spy li{margin-bottom:2px}
+nav.spy a{display:flex;align-items:center;gap:14px;padding:8px 0;color:var(--slate-400);font-size:0.78rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s}
+nav.spy .bar{width:32px;height:1px;background:var(--slate-400);transition:all 0.2s}
+nav.spy a:hover,nav.spy a.active{color:var(--slate-50)}
+nav.spy a:hover .bar,nav.spy a.active .bar{width:56px;background:var(--accent)}
+
+.socials{display:flex;gap:18px;margin-top:2rem}
+.socials a{color:var(--slate-400);font-size:1.25rem;transition:color 0.2s,transform 0.2s;display:inline-block}
+.socials a:hover{color:var(--accent);transform:translateY(-3px)}
+.left-cta{margin-top:2rem}
+.btn-cv{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--accent-line);color:var(--accent);padding:10px 20px;border-radius:7px;font-size:0.85rem;font-weight:500;font-family:'JetBrains Mono',monospace;transition:background 0.2s}
+.btn-cv:hover{background:var(--accent-soft)}
+
+/* RIGHT SCROLL */
+.right{padding:5.5rem 0 6rem}
+.section{margin-bottom:5.5rem}
+.section-label{display:none;position:sticky;top:0;padding:1rem 0;background:rgba(10,14,20,0.85);backdrop-filter:blur(8px);z-index:5;margin-bottom:1rem}
+.mobile-h{display:none;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--slate-50)}
+
+.lead{color:var(--slate-300);margin-bottom:1rem;line-height:1.8}
+.lead strong{color:var(--slate-100);font-weight:500}
+.lead .accent-text{color:var(--accent)}
+
+.philosophy{font-size:1.05rem;color:var(--slate-200);line-height:1.8;border-left:2px solid var(--accent-line);padding-left:1.25rem;margin:1.5rem 0}
+.philosophy strong{color:var(--accent);font-weight:600}
+
+/* company strip */
+.companies{display:flex;flex-wrap:wrap;gap:10px;margin-top:1.5rem}
+.company-chip{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--slate-200);background:var(--card);border:1px solid var(--border);padding:6px 13px;border-radius:6px}
+
+/* EXPERIENCE cards */
+.exp-card{display:grid;grid-template-columns:130px 1fr;gap:1.5rem;padding:1.25rem;border-radius:10px;border:1px solid transparent;transition:all 0.25s;margin:0 -1.25rem 0.5rem;cursor:default}
+.exp-card:hover{background:var(--card);border-color:var(--border);transform:translateX(2px)}
+.exp-card:hover .exp-role{color:var(--accent)}
+.exp-date{font-size:0.72rem;color:var(--slate-400);font-family:'JetBrains Mono',monospace;letter-spacing:0.5px;padding-top:4px;text-transform:uppercase}
+.exp-role{font-size:0.98rem;font-weight:600;color:var(--slate-50);transition:color 0.2s}
+.exp-company{font-size:0.92rem;color:var(--slate-200);font-weight:500}
+.exp-desc{font-size:0.88rem;color:var(--slate-300);margin-top:0.5rem;line-height:1.65}
+.exp-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem}
+.mini-tag{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:20px}
+
+/* PROJECTS */
+.proj-card{display:grid;grid-template-columns:1fr;gap:0.75rem;padding:1.5rem;border-radius:12px;border:1px solid var(--border);background:var(--card);transition:all 0.25s;margin-bottom:1.25rem;position:relative;overflow:hidden}
+.proj-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--accent);transform:scaleY(0);transform-origin:top;transition:transform 0.3s}
+.proj-card:hover{border-color:var(--accent-line);transform:translateY(-3px)}
+.proj-card:hover::before{transform:scaleY(1)}
+.proj-card:hover .proj-title{color:var(--accent)}
+.proj-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.proj-title{font-size:1.1rem;font-weight:600;color:var(--slate-50);transition:color 0.2s;display:flex;align-items:center;gap:8px}
+.proj-title .ext{font-size:0.85rem;color:var(--slate-400);transition:transform 0.2s}
+.proj-card:hover .ext{transform:translate(2px,-2px);color:var(--accent)}
+.proj-status{font-family:'JetBrains Mono',monospace;font-size:0.68rem;padding:3px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+.st-live{background:rgba(52,211,153,0.12);color:#34D399}
+.st-prog{background:rgba(224,179,65,0.12);color:var(--accent)}
+.st-research{background:rgba(167,139,250,0.12);color:#A78BFA}
+.proj-bullets{list-style:none;margin:0.4rem 0}
+.proj-bullets li{position:relative;padding-left:18px;font-size:0.86rem;color:var(--slate-300);line-height:1.6;margin-bottom:5px}
+.proj-bullets li::before{content:'▹';position:absolute;left:0;color:var(--accent)}
+.proj-stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:0.5rem}
+.stack-pill{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--accent);background:var(--accent-soft);padding:4px 11px;border-radius:20px}
+
+.proj-group-label{font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--slate-400);letter-spacing:1px;text-transform:uppercase;margin:2rem 0 1rem;display:flex;align-items:center;gap:12px}
+.proj-group-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+.show-more{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:0.85rem;font-weight:500;background:none;border:none;cursor:pointer;padding:0.5rem 0;margin-top:0.5rem;transition:gap 0.2s}
+.show-more:hover{gap:12px}
+.hidden-projects{display:none}
+.hidden-projects.open{display:block}
+
+/* RESEARCH */
+.research-grid{display:grid;gap:1rem}
+.research-card{padding:1.25rem 1.5rem;border-radius:10px;border:1px solid var(--border);background:var(--card);transition:all 0.25s}
+.research-card:hover{border-color:var(--accent-line);transform:translateX(3px)}
+.research-card h4{color:var(--slate-50);font-size:1rem;font-weight:600;margin-bottom:0.4rem}
+.research-card p{font-size:0.87rem;color:var(--slate-300);line-height:1.65}
+
+/* SKILLS */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.75rem;margin-top:1rem}
+.skill-pill{font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--slate-200);background:var(--card);border:1px solid var(--border);padding:9px 14px;border-radius:8px;text-align:center;transition:all 0.2s}
+.skill-pill:hover{border-color:var(--accent-line);color:var(--accent)}
+
+/* CONTACT */
+.contact-box{text-align:center;padding:2rem 0}
+.contact-box h3{font-size:1.8rem;font-weight:700;color:var(--slate-50);margin-bottom:0.75rem}
+.contact-box p{color:var(--slate-300);max-width:420px;margin:0 auto 2rem;line-height:1.7}
+.btn-contact{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--accent-line);color:var(--accent);padding:14px 32px;border-radius:8px;font-size:0.95rem;font-weight:500;font-family:'JetBrains Mono',monospace;transition:background 0.2s}
+.btn-contact:hover{background:var(--accent-soft)}
+
+footer{padding-top:3rem;border-top:1px solid var(--border);margin-top:3rem;text-align:center}
+footer p{font-size:0.78rem;color:var(--slate-400);font-family:'JetBrains Mono',monospace;line-height:1.7}
+
+/* ALEXBOT */
+#bot-toggle{position:fixed;bottom:24px;right:24px;z-index:50;width:56px;height:56px;border-radius:50%;background:var(--accent);color:#0A0E14;border:none;cursor:pointer;font-size:1.5rem;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(224,179,65,0.35);transition:transform 0.2s}
+#bot-toggle:hover{transform:scale(1.08)}
+#bot-panel{position:fixed;bottom:92px;right:24px;z-index:50;width:360px;max-width:calc(100vw - 48px);height:480px;max-height:calc(100vh - 140px);background:var(--bg2);border:1px solid var(--border);border-radius:16px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+#bot-panel.open{display:flex}
+.bot-head{padding:14px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;background:rgba(224,179,65,0.05)}
+.bot-avatar{width:34px;height:34px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:0.9rem}
+.bot-head .name{font-size:0.9rem;font-weight:600;color:var(--slate-50)}
+.bot-head .sub{font-size:0.72rem;color:var(--accent);font-family:'JetBrains Mono',monospace}
+.bot-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
+.bot-msgs::-webkit-scrollbar{width:5px}
+.bot-msgs::-webkit-scrollbar-thumb{background:var(--slate-400);border-radius:10px}
+.msg{font-size:0.86rem;line-height:1.55;padding:9px 13px;border-radius:12px;max-width:85%}
+.msg.bot{background:var(--card);color:var(--slate-100);align-self:flex-start;border-bottom-left-radius:3px}
+.msg.user{background:var(--accent-soft);color:var(--slate-50);align-self:flex-end;border-bottom-right-radius:3px}
+.bot-typing{align-self:flex-start;display:flex;gap:4px;padding:11px 13px;background:var(--card);border-radius:12px}
+.bot-typing span{width:6px;height:6px;background:var(--slate-400);border-radius:50%;animation:blink 1.4s infinite both}
+.bot-typing span:nth-child(2){animation-delay:0.2s}
+.bot-typing span:nth-child(3){animation-delay:0.4s}
+@keyframes blink{0%,80%,100%{opacity:0.3}40%{opacity:1}}
+.bot-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 8px}
+.chip{font-size:0.72rem;color:var(--accent);background:var(--accent-soft);border:none;padding:5px 10px;border-radius:14px;cursor:pointer;font-family:'JetBrains Mono',monospace;transition:background 0.2s}
+.chip:hover{background:var(--accent-line)}
+.bot-input{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--border)}
+.bot-input input{flex:1;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:9px 13px;color:var(--slate-50);font-family:inherit;font-size:0.85rem;outline:none;transition:border-color 0.2s}
+.bot-input input:focus{border-color:var(--accent-line)}
+.bot-input button{background:var(--accent);color:#0A0E14;border:none;border-radius:10px;width:38px;cursor:pointer;font-size:1rem;transition:opacity 0.2s}
+.bot-input button:disabled{opacity:0.5;cursor:not-allowed}
+
+/* MOBILE */
+@media(max-width:900px){
+  .wrap{padding:0 1.5rem}
+  .layout{grid-template-columns:1fr;gap:0}
+  .left{position:relative;height:auto;padding:4rem 0 2rem;justify-content:flex-start}
+  nav.spy{display:none}
+  .right{padding:1rem 0 4rem}
+  .section{margin-bottom:4rem}
+  .mobile-h{display:block;margin-bottom:1.5rem}
+  .exp-card{grid-template-columns:1fr;gap:0.4rem}
+  .intro h1{font-size:2.2rem}
+  #bot-panel{height:60vh}
+}
+</style>
+</head>
+<body>
+<div id="spotlight"></div>
+
+<div class="wrap">
+  <div class="layout">
+
+    <!-- LEFT STICKY -->
+    <aside class="left">
+      <div>
+        <div class="intro">
+          <h1>Alex Teye<br>Ametepey</h1>
+          <h2>Backend Architect &amp; Python Developer</h2>
+          <p class="tagline">I build production systems that aren't just stable — they're <span class="accent-text">built to scale</span>. Backend architecture, AI platforms, and media systems engineering.</p>
+          <div class="avail mono"><span class="dot"></span> Available for work</div>
+        </div>
+
+        <nav class="spy">
+          <ul>
+            <li><a href="#about" data-spy="about"><span class="bar"></span> About</a></li>
+            <li><a href="#experience" data-spy="experience"><span class="bar"></span> Experience</a></li>
+            <li><a href="#projects" data-spy="projects"><span class="bar"></span> Projects</a></li>
+            <li><a href="#research" data-spy="research"><span class="bar"></span> Research</a></li>
+            <li><a href="#contact" data-spy="contact"><span class="bar"></span> Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div>
+        <div class="socials">
+          <a href="https://github.com/aa-Teye" target="_blank" aria-label="GitHub" title="GitHub">⌥</a>
+          <a href="https://www.linkedin.com/in/alex-ametepey-1123a3205" target="_blank" aria-label="LinkedIn" title="LinkedIn">in</a>
+          <a href="mailto:alexteyeametepey@gmail.com" aria-label="Email" title="Email">✉</a>
+        </div>
+        <div class="left-cta">
+          <a href="https://aa-teye.github.io/porfoliosite/Alex_Ametepey_CV.pdf" target="_blank" class="btn-cv mono">↓ Download CV</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT SCROLL -->
+    <main class="right">
+
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <div class="mobile-h">About</div>
+        <p class="philosophy">My philosophy is that <strong>growth is an engineering problem.</strong> Whether I'm optimizing high-concurrency backends or developing Graph Neural Networks, my goal is to build systems that aren't just stable — they're built to scale.</p>
+        <p class="lead">I'm a Backend Architect with a <strong>BSc in Information Technology</strong> from the University of Ghana and a growing focus on machine learning and computer vision. I work at the intersection of research and production — turning deep learning ideas into systems that actually ship.</p>
+        <p class="lead">Currently a <strong>Research Assistant</strong> at UoG under Prof. Kofi Sarpong Adu-Manu, building spatio-temporal graph models for water infrastructure. I also teach an <span class="accent-text">Applied AI</span> short course at UoG's Department of Computer Science, lead media &amp; IT at Overcomers Nation Church, and run DATS, a tech education venture.</p>
+        <div class="companies">
+          <span class="company-chip">AreteForge</span>
+          <span class="company-chip">University of Ghana</span>
+          <span class="company-chip">Meditel Inc.</span>
+          <span class="company-chip">WAICA</span>
+          <span class="company-chip">Ecktech</span>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="section" id="experience">
+        <div class="mobile-h">Experience</div>
+
+        <div class="exp-card">
+          <div class="exp-date">2023 — Now</div>
+          <div>
+            <div class="exp-role">Research Assistant</div>
+            <div class="exp-company">University of Ghana · Prof. Kofi Sarpong Adu-Manu</div>
+            <div class="exp-desc">Deep learning research using spatio-temporal graph transformer architectures for water distribution infrastructure monitoring. Hands-on PyTorch work across preprocessing, training, and evaluation pipelines.</div>
+            <div class="exp-tags"><span class="mini-tag">PyTorch</span><span class="mini-tag">Graph ML</span><span class="mini-tag">Computer Vision</span></div>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-date">2023 — Now</div>
+          <div>
+            <div class="exp-role">Head, Media Systems &amp; IT Unit</div>
+            <div class="exp-company">Overcomers Nation Church</div>
+            <div class="exp-desc">Lead media, broadcast, and IT infrastructure teams. Designed and built multiple web and mobile applications for church operations and member engagement.</div>
+            <div class="exp-tags"><span class="mini-tag">vMix</span><span class="mini-tag">Live Streaming</span><span class="mini-tag">FastAPI</span></div>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-date">Ongoing</div>
+          <div>
+            <div class="exp-role">Software Developer</div>
+            <div class="exp-company">AreteForge</div>
+            <div class="exp-desc">Backend feature development in Python for production-grade software. Practising full-stack across APIs and frontends, working in agile sprints with Git and Jira.</div>
+            <div class="exp-tags"><span class="mini-tag">Python</span><span class="mini-tag">Git</span><span class="mini-tag">Jira</span></div>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-date">Ongoing</div>
+          <div>
+            <div class="exp-role">Backend Developer</div>
+            <div class="exp-company">Meditel Inc. (Contract)</div>
+            <div class="exp-desc">Lead backend developer on StrokeNet. Built FastAPI services and the real-time alert pipeline, collaborating with frontend on React + Tailwind interfaces.</div>
+            <div class="exp-tags"><span class="mini-tag">FastAPI</span><span class="mini-tag">React</span><span class="mini-tag">Celery</span></div>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-date">Ongoing</div>
+          <div>
+            <div class="exp-role">Teaching Assistant · AI Instructor</div>
+            <div class="exp-company">UoG · Dept. of Computer Science</div>
+            <div class="exp-desc">Teaching the Applied AI Practical Tools and Applications short course — prompt engineering, AI workflows, and practical tooling for researchers, students, and professionals.</div>
+            <div class="exp-tags"><span class="mini-tag">Applied AI</span><span class="mini-tag">Prompt Eng</span></div>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-date">Ongoing</div>
+          <div>
+            <div class="exp-role">Digital Marketer (Remote)</div>
+            <div class="exp-company">WAICA</div>
+            <div class="exp-desc">Content creation, social media management, and growth campaigns building online brand presence and audience engagement across digital channels.</div>
+            <div class="exp-tags"><span class="mini-tag">Growth</span><span class="mini-tag">Content</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="section" id="projects">
+        <div class="mobile-h">Projects</div>
+
+        <div class="proj-group-label">Flagship Systems</div>
+
+        <article class="proj-card">
+          <div class="proj-top">
+            <div class="proj-title">StrokeNet: Real-Time Response Network</div>
+            <span class="proj-status st-prog">In Progress</span>
+          </div>
+          <ul class="proj-bullets">
+            <li>Lead Backend Developer for a cross-platform ecosystem spanning Web, Mobile, Desktop, and Smartwatches.</li>
+            <li>Architected the real-time nervous system connecting patients, doctors, and ambulances using WebRTC and Socket.IO.</li>
+            <li>Engineered the automated AI assessment pipeline (FastAPI, Celery, AWS S3) that processes medical imaging and broadcasts critical alerts.</li>
+          </ul>
+          <div class="proj-stack"><span class="stack-pill">WebRTC</span><span class="stack-pill">Socket.IO</span><span class="stack-pill">FastAPI</span><span class="stack-pill">Celery</span></div>
+        </article>
+
+        <article class="proj-card">
+          <a href="https://github.com/aa-Teye/VelocityPass" target="_blank" class="proj-top">
+            <div class="proj-title">VelocityPass: Event Ticketing Engine <span class="ext">↗</span></div>
+            <span class="proj-status st-live">Live</span>
+          </a>
+          <ul class="proj-bullets">
+            <li>High-throughput API using FastAPI and Redis distributed locks to eliminate race conditions during 10k+ concurrent traffic spikes.</li>
+            <li>PostgreSQL row-level locking (SELECT FOR UPDATE) and Unit of Work patterns guaranteeing atomic transactions.</li>
+            <li>Horizontally scalable services deployed via Docker Compose with multi-stage, non-root Dockerfiles.</li>
+          </ul>
+          <div class="proj-stack"><span class="stack-pill">FastAPI</span><span class="stack-pill">Redis</span><span class="stack-pill">PostgreSQL</span><span class="stack-pill">Docker</span></div>
+        </article>
+
+        <article class="proj-card">
+          <a href="https://github.com/aa-Teye/UG-SmartWallet" target="_blank" class="proj-top">
+            <div class="proj-title">UG SmartWallet: Campus Economy <span class="ext">↗</span></div>
+            <span class="proj-status st-prog">In Progress</span>
+          </a>
+          <ul class="proj-bullets">
+            <li>Double-entry ledger system with PostgreSQL row-level locking, ensuring zero money creation or loss during concurrent transactions.</li>
+            <li>Strict idempotency-key validation eliminating double-spending from network retries and duplicate QR scans.</li>
+            <li>Pydantic v2 enforcing rigorous pre-database validation against malformed financial data.</li>
+          </ul>
+          <div class="proj-stack"><span class="stack-pill">FastAPI</span><span class="stack-pill">PostgreSQL</span><span class="stack-pill">Pydantic v2</span></div>
+        </article>
+
+        <div class="proj-group-label">Backend &amp; Infrastructure</div>
+
+        <article class="proj-card">
+          <a href="https://github.com/aa-Teye/Dominion-Media" target="_blank" class="proj-top">
+            <div class="proj-title">Dominion Media API: Audio Streaming <span class="ext">↗</span></div>
+            <span class="proj-status st-live">Live</span>
+          </a>
+          <ul class="proj-bullets">
+            <li>Memory-efficient streaming using Python async generators and FastAPI StreamingResponse, drastically reducing server footprint.</li>
+            <li>Offloaded heavy bandwidth ops to AWS S3 and CloudFront via secure presigned URLs.</li>
+            <li>Decoupled media architecture handling thousands of concurrent listeners without exhausting worker threads.</li>
+          </ul>
+          <div class="proj-stack"><span class="stack-pill">FastAPI</span><span class="stack-pill">AWS S3</span><span class="stack-pill">CloudFront</span></div>
+        </article>
+
+        <div class="hidden-projects" id="moreProjects">
+          <article class="proj-card">
+            <a href="https://github.com/aa-Teye/QuantData-Pipeline" target="_blank" class="proj-top">
+              <div class="proj-title">QuantData Pipeline: Financial Data API <span class="ext">↗</span></div>
+              <span class="proj-status st-live">Live</span>
+            </a>
+            <ul class="proj-bullets">
+              <li>Async bulk-insert pipeline to TimescaleDB processing thousands of market ticks per second.</li>
+              <li>Rust-backed Pydantic v2 validation ensuring zero corrupted data points enter the pipeline.</li>
+              <li>TimescaleDB hypertables massively improving query performance for temporal aggregations.</li>
+            </ul>
+            <div class="proj-stack"><span class="stack-pill">Python</span><span class="stack-pill">TimescaleDB</span><span class="stack-pill">Pydantic v2</span></div>
+          </article>
+
+          <article class="proj-card">
+            <a href="https://github.com/aa-Teye/Symptom-Checker" target="_blank" class="proj-top">
+              <div class="proj-title">Symptom Checker Microservice <span class="ext">↗</span></div>
+              <span class="proj-status st-live">Live</span>
+            </a>
+            <ul class="proj-bullets">
+              <li>Decoupled heavy AI inference from the main API using Celery and RabbitMQ, preventing pool exhaustion and gateway timeouts.</li>
+              <li>Robust worker queue with automatic retries and Redis state management, allowing independent horizontal scaling.</li>
+              <li>Non-blocking API handling burst traffic gracefully by queueing requests for 99.9% uptime.</li>
+            </ul>
+            <div class="proj-stack"><span class="stack-pill">FastAPI</span><span class="stack-pill">Celery</span><span class="stack-pill">RabbitMQ</span><span class="stack-pill">Docker</span></div>
+          </article>
+
+          <article class="proj-card">
+            <a href="https://github.com/aa-Teye/Fraud-Detection" target="_blank" class="proj-top">
+              <div class="proj-title">Fraud Detection: Real-Time Pipeline <span class="ext">↗</span></div>
+              <span class="proj-status st-live">Live</span>
+            </a>
+            <ul class="proj-bullets">
+              <li>Low-latency fraud detection using Kafka streams to process transaction events in under 50ms.</li>
+              <li>In-memory Redis caching layer for rapid feature retrieval, minimizing database round-trips.</li>
+              <li>Async FastAPI microservice exposing model predictions without blocking event processing.</li>
+            </ul>
+            <div class="proj-stack"><span class="stack-pill">FastAPI</span><span class="stack-pill">Kafka</span><span class="stack-pill">Redis</span><span class="stack-pill">ML</span></div>
+          </article>
+
+          <article class="proj-card">
+            <div class="proj-top">
+              <div class="proj-title">ONC Media Automation Hub</div>
+              <span class="proj-status st-live">Live</span>
+            </div>
+            <ul class="proj-bullets">
+              <li>React Native app serving as a remote control for complex live media broadcasts.</li>
+              <li>FastAPI backend integrated with the vMix API over WebSockets for real-time, low-latency switching and graphics.</li>
+              <li>60fps mobile interface empowering media teams to manage global livestreams from any device.</li>
+            </ul>
+            <div class="proj-stack"><span class="stack-pill">React Native</span><span class="stack-pill">FastAPI</span><span class="stack-pill">WebSockets</span><span class="stack-pill">vMix API</span></div>
+          </article>
+
+          <article class="proj-card">
+            <div class="proj-top">
+              <div class="proj-title">AudioAlert: VS Code Extension</div>
+              <span class="proj-status st-live">Live</span>
+            </div>
+            <ul class="proj-bullets">
+              <li>VS Code extension that plays an alert sound whenever a syntax error or exception is detected in the editor.</li>
+              <li>Custom audio uploads or native system sounds for personalized error notifications.</li>
+              <li>Built with TypeScript and the VS Code Extension API, hooking into diagnostic and language-server events in real time.</li>
+            </ul>
+            <div class="proj-stack"><span class="stack-pill">TypeScript</span><span class="stack-pill">VS Code API</span><span class="stack-pill">Node.js</span></div>
+          </article>
+
+          <article class="proj-card">
+            <div class="proj-top">
+              <div class="proj-title">CPG Collect: Field Data Platform</div>
+              <span class="proj-status st-prog">In Progress</span>
+            </div>
+            <ul class="proj-bullets">
+              <li>Structured data-collection platform for CPG field agents capturing real-time shelf analytics and competitor data.</li>
+              <li>Dynamic form engine with branching logic, offline-first support, and automatic sync to a centralized PostgreSQL backend.</li>
+              <li>Reporting dashboard surfacing insights through FastAPI async aggregation pipelines.</li>
+            </ul>
+            <div class="proj-stack"><span class="stack-pill">FastAPI</span><span class="stack-pill">PostgreSQL</span><span class="stack-pill">React Native</span><span class="stack-pill">Offline-First</span></div>
+          </article>
+        </div>
+
+        <button class="show-more" id="showMore">Show more projects →</button>
+      </section>
+
+      <!-- RESEARCH -->
+      <section class="section" id="research">
+        <div class="mobile-h">Research &amp; Academic Rigor</div>
+        <p class="lead">I believe the next generation of software will be driven by <span class="accent-text">intelligent data structures.</span></p>
+        <div class="research-grid">
+          <div class="research-card">
+            <h4>Transferable Foundation GNNs</h4>
+            <p>Engineering scalable Graph Neural Network architectures that generalize across varied datasets. Optimized training pipelines using PyTorch Geometric, reducing convergence time by 40% and bridging academic research with production-ready inference APIs.</p>
+          </div>
+          <div class="research-card">
+            <h4>Graph Foundation Model — Water Networks</h4>
+            <p>Spatio-temporal graph transformer architectures for water distribution network leakage detection. Built the DiTEC preprocessing pipeline with two-pass normalization producing exact-dimension feature tensors.</p>
+          </div>
+          <div class="research-card">
+            <h4>Financial Engineering</h4>
+            <p>Bridging quantitative finance and real-time data pipelines through advanced study with WorldQuant University — vectorized computation, market analytics, and high-fidelity simulation.</p>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem">
+          <div class="proj-group-label">Additional Skills</div>
+          <div class="skill-grid">
+            <div class="skill-pill">Python / FastAPI</div>
+            <div class="skill-pill">React / React Native</div>
+            <div class="skill-pill">PostgreSQL / Redis</div>
+            <div class="skill-pill">Docker / DevOps</div>
+            <div class="skill-pill">PyTorch / GNNs</div>
+            <div class="skill-pill">Kafka / Celery</div>
+            <div class="skill-pill">AWS S3 / CloudFront</div>
+            <div class="skill-pill">vMix / Live Streaming</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="contact-box">
+          <h3>Let's build something that scales</h3>
+          <p>I'm currently available for freelance and contract work. Whether you've got a backend to architect, an AI platform to build, or a system to scale — I'd love to hear about it.</p>
+          <a href="mailto:alexteyeametepey@gmail.com" class="btn-contact mono">Get In Touch ↗</a>
+        </div>
+        <footer>
+          <p>Designed &amp; built by Alex Teye Ametepey · Accra, Ghana<br>Backend Architect · Python Developer · Media Systems Engineer</p>
+        </footer>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- ALEXBOT -->
+<button id="bot-toggle" aria-label="Chat with AlexBot">✦</button>
+<div id="bot-panel">
+  <div class="bot-head">
+    <div class="bot-avatar">AB</div>
+    <div>
+      <div class="name">AlexBot</div>
+      <div class="sub mono">AI assistant</div>
+    </div>
+  </div>
+  <div class="bot-msgs" id="botMsgs">
+    <div class="msg bot">Hi! I'm AlexBot. Ask me anything about Alex — his skills, experience, projects, or how to get in touch.</div>
+  </div>
+  <div class="bot-chips" id="botChips">
+    <button class="chip">What's his strongest skill?</button>
+    <button class="chip">Tell me about StrokeNet</button>
+    <button class="chip">How do I hire him?</button>
+  </div>
+  <div class="bot-input">
+    <input id="botInput" type="text" placeholder="Ask about Alex..." autocomplete="off"/>
+    <button id="botSend" aria-label="Send">→</button>
+  </div>
+</div>
+
+<script>
+// ---- cursor spotlight ----
+const spot = document.getElementById('spotlight');
+let mx = window.innerWidth/2, my = window.innerHeight/2;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+function paint(){
+  spot.style.background = `radial-gradient(600px circle at ${mx}px ${my}px, rgba(224,179,65,0.06), transparent 40%)`;
+  requestAnimationFrame(paint);
+}
+paint();
+
+// ---- scroll spy ----
+const spyLinks = document.querySelectorAll('nav.spy a');
+const sections = [...spyLinks].map(a => document.getElementById(a.dataset.spy));
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(en.isIntersecting){
+      spyLinks.forEach(l => l.classList.toggle('active', l.dataset.spy === en.target.id));
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+sections.forEach(s => s && obs.observe(s));
+
+// ---- show more projects ----
+document.getElementById('showMore').addEventListener('click', function(){
+  const more = document.getElementById('moreProjects');
+  more.classList.toggle('open');
+  this.textContent = more.classList.contains('open') ? 'Show fewer projects ←' : 'Show more projects →';
+});
+
+// ---- AlexBot ----
+const toggle = document.getElementById('bot-toggle');
+const panel = document.getElementById('bot-panel');
+const msgs = document.getElementById('botMsgs');
+const input = document.getElementById('botInput');
+const sendBtn = document.getElementById('botSend');
+const chips = document.getElementById('botChips');
+
+toggle.addEventListener('click', () => {
+  panel.classList.toggle('open');
+  if(panel.classList.contains('open')) input.focus();
+});
+
+const KNOWLEDGE = `You are AlexBot, the friendly AI assistant on Alex Teye Ametepey's portfolio website. Answer questions about Alex concisely (2-4 sentences), warmly, and in a way that makes recruiters and clients want to work with him. Only answer based on the facts below. If asked something unrelated or unknown, politely redirect to what you do know or suggest emailing Alex.
+
+ABOUT ALEX:
+- Backend Architect, Python Developer, and Media Systems Engineer based in Accra, Ghana.
+- BSc in Information Technology, University of Ghana (graduated 2025).
+- Philosophy: "Growth is an Engineering Problem." Builds systems that are built to scale.
+- Currently available for freelance and contract work.
+- Email: alexteyeametepey@gmail.com | GitHub: github.com/aa-Teye | LinkedIn: alex-ametepey-1123a3205
+
+ROLES:
+- Research Assistant at University of Ghana under Prof. Kofi Sarpong Adu-Manu (2023-now): deep learning, spatio-temporal graph transformers for water infrastructure.
+- Head of Media Systems & IT at Overcomers Nation Church (2023-now): leads broadcast/IT, builds church web & mobile apps.
+- Software Developer at AreteForge: Python backend, agile, Git/Jira.
+- Backend Developer at Meditel Inc. (contract): lead backend on StrokeNet, FastAPI + React.
+- Teaching Assistant / AI Instructor at UoG Dept of Computer Science: teaches Applied AI short course.
+- Digital Marketer (remote) at WAICA.
+- Also runs DATS, a tech education venture.
+
+CORE STACK: Python, FastAPI, Redis, PostgreSQL, Docker, React, React Native, PyTorch, GNNs, Kafka, Celery, RabbitMQ, AWS S3/CloudFront, TimescaleDB, Pydantic v2, WebRTC, Socket.IO, vMix live streaming.
+
+KEY PROJECTS:
+- StrokeNet: Lead backend dev. Real-time stroke response network across Web/Mobile/Desktop/Smartwatch using WebRTC, Socket.IO, FastAPI, Celery, AWS S3. AI medical imaging assessment + critical alerts.
+- VelocityPass: Event ticketing engine. FastAPI + Redis distributed locks handling 10k+ concurrent users with zero race conditions; PostgreSQL row-level locking for atomic transactions.
+- UG SmartWallet: Closed-loop campus economy with double-entry ledger, idempotency keys preventing double-spending, Pydantic v2 validation.
+- Dominion Media API: Audio streaming backend with async generators, AWS S3/CloudFront presigned URLs, thousands of concurrent listeners.
+- QuantData Pipeline: Async financial data pipeline to TimescaleDB processing thousands of ticks/sec.
+- Fraud Detection: Kafka streams processing transactions in under 50ms with Redis caching.
+- Symptom Checker: AI microservice decoupling inference via Celery/RabbitMQ for 99.9% uptime.
+- Transferable Foundation GNNs: scalable Graph Neural Networks, 40% faster convergence with PyTorch Geometric.
+
+STRONGEST SKILLS: High-concurrency backend architecture (distributed locking, atomic transactions, idempotency), AI/ML integration, and bridging research with production systems.
+
+HOW TO HIRE: Email alexteyeametepey@gmail.com or use the contact button on the site. He's available for freelance and contract work now.`;
+
+let history = [];
+let busy = false;
+
+function addMsg(text, who){
+  const d = document.createElement('div');
+  d.className = 'msg ' + who;
+  d.textContent = text;
+  msgs.appendChild(d);
+  msgs.scrollTop = msgs.scrollHeight;
+  return d;
+}
+function showTyping(){
+  const t = document.createElement('div');
+  t.className = 'bot-typing';
+  t.innerHTML = '<span></span><span></span><span></span>';
+  msgs.appendChild(t);
+  msgs.scrollTop = msgs.scrollHeight;
+  return t;
+}
+
+async function ask(question){
+  if(busy || !question.trim()) return;
+  busy = true; sendBtn.disabled = true;
+  chips.style.display = 'none';
+  addMsg(question, 'user');
+  input.value = '';
+  history.push({ role: 'user', content: question });
+  const typing = showTyping();
+
+  try {
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-6",
+        max_tokens: 1000,
+        system: KNOWLEDGE,
+        messages: history
+      })
+    });
+    const data = await res.json();
+    const reply = (data.content || []).map(b => b.text || "").join("").trim() || "Sorry, I couldn't generate a response. Try emailing Alex at alexteyeametepey@gmail.com.";
+    typing.remove();
+    addMsg(reply, 'bot');
+    history.push({ role: 'assistant', content: reply });
+  } catch(err){
+    typing.remove();
+    addMsg("I'm having trouble connecting right now. You can reach Alex directly at alexteyeametepey@gmail.com.", 'bot');
+  } finally {
+    busy = false; sendBtn.disabled = false; input.focus();
+  }
+}
+
+sendBtn.addEventListener('click', () => ask(input.value));
+input.addEventListener('keydown', e => { if(e.key === 'Enter') ask(input.value); });
+chips.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => ask(c.textContent)));
+</script>
+</body>
+</html>

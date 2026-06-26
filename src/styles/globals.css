@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #0A0E14;
+  --bg2: #0F1620;
+  --accent: #E0B341;
+  --accent-soft: rgba(224, 179, 65, 0.12);
+  --accent-line: rgba(224, 179, 65, 0.25);
+  --card: rgba(20, 28, 40, 0.6);
+  --border: rgba(120, 140, 170, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: #a6b3c7;
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2a3547; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* utility classes */
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+/* animations */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes ring {
+  0%   { box-shadow: 0 0 0 0 rgba(224, 179, 65, 0.5); }
+  70%  { box-shadow: 0 0 0 8px rgba(224, 179, 65, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(224, 179, 65, 0); }
+}
+
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0.3; }
+  40%           { opacity: 1; }
+}
+
+.pulse-dot { animation: ring 2s infinite; }
+.blink-dot { animation: blink 1.4s infinite both; }
+
+/* mobile */
+@media (max-width: 900px) {
+  .layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .left-panel {
+    position: relative !important;
+    height: auto !important;
+    padding: 4rem 0 2rem !important;
+  }
+  .spy-nav { display: none !important; }
+  .right-panel { padding: 1rem 0 4rem !important; }
+  .page-wrap { padding: 0 1.5rem !important; }
+}
