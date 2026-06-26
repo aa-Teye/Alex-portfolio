@@ -8,6 +8,7 @@ export const meta = {
   linkedin: 'https://www.linkedin.com/in/alex-ametepey-1123a3205',
   cv: '/Alex_Ametepey_CV.pdf',
   location: 'Accra, Ghana',
+  whatsapp: '+233549044977',
 };
 
 export const typewriterTitles = [

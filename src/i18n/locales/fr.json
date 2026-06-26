@@ -1,0 +1,49 @@
+{
+  "nav": {
+    "about": "À propos",
+    "experience": "Expérience",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "research": "Recherche",
+    "contact": "Contact"
+  },
+  "hero": {
+    "available": "Disponible pour des missions",
+    "tagline": "Je crée des systèmes de production stables et évolutifs. Architecture backend, plateformes IA et ingénierie des systèmes médias.",
+    "downloadCV": "Télécharger le CV"
+  },
+  "about": {
+    "philosophy": "Ma philosophie est que la croissance est un problème d'ingénierie. Que j'optimise des backends à haute concurrence ou développe des réseaux de neurones graphiques, mon objectif est de construire des systèmes non seulement stables — mais conçus pour évoluer.",
+    "bio1": "Je suis un architecte backend avec une <strong>licence en technologies de l'information</strong> de l'Université du Ghana, avec un intérêt croissant pour l'apprentissage automatique et la vision par ordinateur. Je travaille à l'intersection de la recherche et de la production — transformant des idées de deep learning en systèmes réels.",
+    "bio2": "Actuellement <strong>assistant de recherche</strong> à l'UoG sous la direction du Prof. Kofi Sarpong Adu-Manu, je construis des modèles graphiques spatio-temporels pour les infrastructures hydrauliques. J'enseigne également un cours d'<accent>IA appliquée</accent> au département d'informatique de l'UoG, dirige les médias & l'IT à l'Overcomers Nation Church, et gère DATS, une entreprise d'éducation technologique."
+  },
+  "projects": {
+    "flagship": "Systèmes Phares",
+    "backend": "Backend & Infrastructure",
+    "websites": "Sites Web Créés",
+    "showMore": "Voir plus de projets →",
+    "showFewer": "Voir moins de projets ←",
+    "inProgress": "En cours",
+    "live": "En ligne"
+  },
+  "skills": {
+    "tagline": "Un développeur full-stack couvrant l'ensemble du cycle de vie produit — de l'entraînement de réseaux de neurones aux systèmes de diffusion en direct, en passant par l'enseignement de l'IA aux chercheurs."
+  },
+  "research": {
+    "tagline": "Je crois que la prochaine génération de logiciels sera portée par des structures de données intelligentes."
+  },
+  "contact": {
+    "heading": "Construisons quelque chose qui évolue",
+    "tagline": "Je suis actuellement disponible pour des missions freelance et des contrats. Que vous ayez un backend à concevoir, une plateforme IA à construire ou un système à faire évoluer — je serais ravi d'en discuter.",
+    "emailCTA": "Me Contacter ↗",
+    "whatsappCTA": "WhatsApp ↗",
+    "footer": "Conçu & développé par Alex Teye Ametepey",
+    "footerRole": "Architecte Backend · Développeur Python · Ingénieur Systèmes Médias"
+  },
+  "bot": {
+    "greeting": "Bonjour ! Je suis AlexBot — posez-moi des questions sur Alex. Cliquez sur une question ou tapez la vôtre.",
+    "fallback": "Je ne suis pas sûr de ça. Pour toute question spécifique, envoyez un email à Alex directement à alexteyeametepey@gmail.com — il répond rapidement.",
+    "placeholder": "Posez une question sur Alex...",
+    "openLabel": "Ouvrir la FAQ"
+  }
+}

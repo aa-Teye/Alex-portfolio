@@ -1,0 +1,49 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "research": "Research",
+    "contact": "Contact"
+  },
+  "hero": {
+    "available": "Available for work",
+    "tagline": "I build production systems that aren't just stable — built to scale. Backend architecture, AI platforms, and media systems engineering.",
+    "downloadCV": "Download CV"
+  },
+  "about": {
+    "philosophy": "My philosophy is that growth is an engineering problem. Whether I'm optimizing high-concurrency backends or developing Graph Neural Networks, my goal is to build systems that aren't just stable — they're built to scale.",
+    "bio1": "I'm a Backend Architect with a <strong>BSc in Information Technology</strong> from the University of Ghana and a growing focus on machine learning and computer vision. I work at the intersection of research and production — turning deep learning ideas into systems that actually ship.",
+    "bio2": "Currently a <strong>Research Assistant</strong> at UoG under Prof. Kofi Sarpong Adu-Manu, building spatio-temporal graph models for water infrastructure. I also teach an <accent>Applied AI</accent> short course at UoG's Department of Computer Science, lead media & IT at Overcomers Nation Church, and run DATS, a tech education venture."
+  },
+  "projects": {
+    "flagship": "Flagship Systems",
+    "backend": "Backend & Infrastructure",
+    "websites": "Websites Built",
+    "showMore": "Show more projects →",
+    "showFewer": "Show fewer projects ←",
+    "inProgress": "In Progress",
+    "live": "Live"
+  },
+  "skills": {
+    "tagline": "A full-stack builder across the entire product lifecycle — from neural network training to live broadcast systems to teaching AI to researchers."
+  },
+  "research": {
+    "tagline": "I believe the next generation of software will be driven by intelligent data structures."
+  },
+  "contact": {
+    "heading": "Let's build something that scales",
+    "tagline": "I'm currently available for freelance and contract work. Whether you've got a backend to architect, an AI platform to build, or a system to scale — I'd love to hear about it.",
+    "emailCTA": "Get In Touch ↗",
+    "whatsappCTA": "WhatsApp Me ↗",
+    "footer": "Designed & built by Alex Teye Ametepey",
+    "footerRole": "Backend Architect · Python Developer · Media Systems Engineer"
+  },
+  "bot": {
+    "greeting": "Hi! I'm AlexBot — ask me anything about Alex. Click a question below or type your own.",
+    "fallback": "I'm not sure about that one. For anything specific, email Alex directly at alexteyeametepey@gmail.com — he responds fast.",
+    "placeholder": "Ask about Alex...",
+    "openLabel": "Open FAQ"
+  }
+}

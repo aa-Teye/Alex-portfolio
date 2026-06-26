@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import ProjectCard from '../ui/ProjectCard';
 import { flagship, backend, websites } from '../../data/projects';
 
@@ -25,16 +26,17 @@ function GroupLabel({ children }) {
 }
 
 export default function Projects() {
+  const { t } = useTranslation();
   const [showAll, setShowAll] = useState(false);
 
   return (
     <section id="projects" style={{ marginBottom: '5.5rem' }}>
-      <GroupLabel>Flagship Systems</GroupLabel>
+      <GroupLabel>{t('projects.flagship')}</GroupLabel>
       {flagship.map((p, i) => (
         <ProjectCard key={p.title} proj={p} index={i} />
       ))}
 
-      <GroupLabel>Backend &amp; Infrastructure</GroupLabel>
+      <GroupLabel>{t('projects.backend')}</GroupLabel>
       <ProjectCard proj={backend[0]} index={0} />
 
       <AnimatePresence>
@@ -73,10 +75,10 @@ export default function Projects() {
         onMouseEnter={(e) => (e.currentTarget.style.gap = '14px')}
         onMouseLeave={(e) => (e.currentTarget.style.gap = '8px')}
       >
-        {showAll ? 'Show fewer projects ←' : 'Show more projects →'}
+        {showAll ? t('projects.showFewer') : t('projects.showMore')}
       </button>
 
-      <GroupLabel>Websites Built</GroupLabel>
+      <GroupLabel>{t('projects.websites')}</GroupLabel>
       <div
         style={{
           display: 'grid',

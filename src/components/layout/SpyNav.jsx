@@ -1,23 +1,17 @@
+import { useTranslation } from 'react-i18next';
 import { useScrollSpy } from '../../hooks/useScrollSpy';
 
-const NAV_ITEMS = [
-  { id: 'about',      label: 'About' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'projects',   label: 'Projects' },
-  { id: 'skills',     label: 'Skills' },
-  { id: 'research',   label: 'Research' },
-  { id: 'contact',    label: 'Contact' },
-];
-
-const IDS = NAV_ITEMS.map((n) => n.id);
+const NAV_IDS = ['about', 'experience', 'projects', 'skills', 'research', 'contact'];
 
 export default function SpyNav() {
-  const activeId = useScrollSpy(IDS);
+  const { t } = useTranslation();
+  const activeId = useScrollSpy(NAV_IDS);
 
   return (
     <nav style={{ marginTop: '3.5rem' }}>
       <ul style={{ listStyle: 'none', padding: 0 }}>
-        {NAV_ITEMS.map(({ id, label }) => {
+        {NAV_IDS.map((id) => {
+          const label = t(`nav.${id}`);
           const active = activeId === id;
           return (
             <li key={id} style={{ marginBottom: '4px' }}>

@@ -1,0 +1,49 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "research": "Investigación",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "available": "Disponible para trabajar",
+    "tagline": "Construyo sistemas de producción estables y escalables. Arquitectura backend, plataformas de IA e ingeniería de sistemas de medios.",
+    "downloadCV": "Descargar CV"
+  },
+  "about": {
+    "philosophy": "Mi filosofía es que el crecimiento es un problema de ingeniería. Ya sea optimizando backends de alta concurrencia o desarrollando Redes Neuronales de Grafos, mi objetivo es construir sistemas que no solo sean estables — sino diseñados para escalar.",
+    "bio1": "Soy un Arquitecto Backend con una <strong>Licenciatura en Tecnologías de la Información</strong> de la Universidad de Ghana, con un enfoque creciente en aprendizaje automático y visión por computadora. Trabajo en la intersección de la investigación y la producción — convirtiendo ideas de deep learning en sistemas que realmente se lanzan.",
+    "bio2": "Actualmente soy <strong>Asistente de Investigación</strong> en la UoG bajo la dirección del Prof. Kofi Sarpong Adu-Manu, construyendo modelos de grafos espacio-temporales para infraestructura hídrica. También imparto un curso de <accent>IA Aplicada</accent> en el Departamento de Ciencias de la Computación de la UoG, dirijo medios & TI en la Iglesia Overcomers Nation y administro DATS, una empresa de educación tecnológica."
+  },
+  "projects": {
+    "flagship": "Sistemas Insignia",
+    "backend": "Backend e Infraestructura",
+    "websites": "Sitios Web Creados",
+    "showMore": "Ver más proyectos →",
+    "showFewer": "Ver menos proyectos ←",
+    "inProgress": "En progreso",
+    "live": "En vivo"
+  },
+  "skills": {
+    "tagline": "Un desarrollador full-stack en todo el ciclo de vida del producto — desde el entrenamiento de redes neuronales hasta los sistemas de transmisión en vivo y la enseñanza de IA a investigadores."
+  },
+  "research": {
+    "tagline": "Creo que la próxima generación de software estará impulsada por estructuras de datos inteligentes."
+  },
+  "contact": {
+    "heading": "Construyamos algo que escale",
+    "tagline": "Actualmente estoy disponible para trabajo freelance y por contrato. Ya sea que tengas un backend que arquitectar, una plataforma de IA que construir o un sistema que escalar — me encantaría saber de ti.",
+    "emailCTA": "Ponte en Contacto ↗",
+    "whatsappCTA": "WhatsApp ↗",
+    "footer": "Diseñado y desarrollado por Alex Teye Ametepey",
+    "footerRole": "Arquitecto Backend · Desarrollador Python · Ingeniero de Sistemas de Medios"
+  },
+  "bot": {
+    "greeting": "¡Hola! Soy AlexBot — pregúntame cualquier cosa sobre Alex. Haz clic en una pregunta o escribe la tuya.",
+    "fallback": "No estoy seguro de eso. Para cualquier consulta específica, envía un correo a Alex directamente a alexteyeametepey@gmail.com — responde rápido.",
+    "placeholder": "Pregunta sobre Alex...",
+    "openLabel": "Abrir FAQ"
+  }
+}

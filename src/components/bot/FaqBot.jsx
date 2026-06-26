@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { useFaqBot } from './useFaqBot';
 import { suggestedChips } from '../../data/faq';
 
 export default function FaqBot() {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
   const { messages, showChips, send } = useFaqBot();
@@ -31,7 +33,7 @@ export default function FaqBot() {
         onClick={() => setOpen((v) => !v)}
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
-        aria-label="Open FAQ"
+        aria-label={t('bot.openLabel')}
         style={{
           position: 'fixed', bottom: '24px', right: '24px', zIndex: 50,
           width: '56px', height: '56px', borderRadius: '50%',
@@ -181,7 +183,7 @@ export default function FaqBot() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                placeholder="Ask about Alex..."
+                placeholder={t('bot.placeholder')}
                 style={{
                   flex: 1, background: 'var(--card)',
                   border: '1px solid var(--border)',

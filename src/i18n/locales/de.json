@@ -1,0 +1,49 @@
+{
+  "nav": {
+    "about": "Über mich",
+    "experience": "Erfahrung",
+    "projects": "Projekte",
+    "skills": "Fähigkeiten",
+    "research": "Forschung",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "available": "Verfügbar für Projekte",
+    "tagline": "Ich baue Produktionssysteme, die nicht nur stabil, sondern skalierbar sind. Backend-Architektur, KI-Plattformen und Medientechnik.",
+    "downloadCV": "Lebenslauf herunterladen"
+  },
+  "about": {
+    "philosophy": "Meine Philosophie ist, dass Wachstum ein technisches Problem ist. Ob ich Hochleistungs-Backends optimiere oder Graph Neural Networks entwickle — mein Ziel ist es, Systeme zu bauen, die nicht nur stabil, sondern auf Wachstum ausgelegt sind.",
+    "bio1": "Ich bin ein Backend-Architekt mit einem <strong>BSc in Informationstechnologie</strong> der Universität Ghana und einem wachsenden Fokus auf maschinelles Lernen und Computer Vision. Ich arbeite an der Schnittstelle von Forschung und Produktion — und verwandle Deep-Learning-Ideen in echte Systeme.",
+    "bio2": "Derzeit bin ich <strong>Forschungsassistent</strong> an der UoG unter Prof. Kofi Sarpong Adu-Manu und entwickle raumzeitliche Graphmodelle für Wasserinfrastrukturen. Ich unterrichte außerdem einen Kurzlehrgang zu <accent>Angewandter KI</accent> am Fachbereich Informatik der UoG, leite Medien & IT an der Overcomers Nation Church und führe DATS, ein Tech-Bildungsunternehmen."
+  },
+  "projects": {
+    "flagship": "Hauptprojekte",
+    "backend": "Backend & Infrastruktur",
+    "websites": "Erstellte Websites",
+    "showMore": "Mehr Projekte anzeigen →",
+    "showFewer": "Weniger Projekte anzeigen ←",
+    "inProgress": "In Bearbeitung",
+    "live": "Live"
+  },
+  "skills": {
+    "tagline": "Ein Full-Stack-Entwickler über den gesamten Produktlebenszyklus — vom Training neuronaler Netze über Live-Broadcast-Systeme bis hin zur KI-Lehre für Forscher."
+  },
+  "research": {
+    "tagline": "Ich glaube, die nächste Generation von Software wird durch intelligente Datenstrukturen angetrieben."
+  },
+  "contact": {
+    "heading": "Lass uns etwas Skalierbares bauen",
+    "tagline": "Ich bin derzeit für Freelance- und Vertragsprojekte verfügbar. Ob Sie ein Backend entwerfen, eine KI-Plattform aufbauen oder ein System skalieren möchten — ich höre gerne davon.",
+    "emailCTA": "Kontakt aufnehmen ↗",
+    "whatsappCTA": "WhatsApp ↗",
+    "footer": "Entworfen & entwickelt von Alex Teye Ametepey",
+    "footerRole": "Backend-Architekt · Python-Entwickler · Medientechniker"
+  },
+  "bot": {
+    "greeting": "Hallo! Ich bin AlexBot — fragen Sie mich alles über Alex. Klicken Sie auf eine Frage oder geben Sie Ihre eigene ein.",
+    "fallback": "Da bin ich mir nicht sicher. Für spezifische Anfragen senden Sie Alex direkt eine E-Mail an alexteyeametepey@gmail.com — er antwortet schnell.",
+    "placeholder": "Frage zu Alex...",
+    "openLabel": "FAQ öffnen"
+  }
+}

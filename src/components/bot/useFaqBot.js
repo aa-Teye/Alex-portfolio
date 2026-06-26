@@ -1,21 +1,20 @@
-import { useState } from 'react';
-import { faqs, botGreeting, fallbackReply } from '../../data/faq';
+import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { faqs } from '../../data/faq';
 
-function findAnswer(input) {
+function findAnswer(input, fallback) {
   const q = input.toLowerCase().trim();
 
-  // exact FAQ question match first
   const exact = faqs.find((f) => f.question.toLowerCase() === q);
   if (exact) return exact.answer;
 
-  // keyword scoring
   let best = null;
   let bestScore = 0;
 
   for (const faq of faqs) {
     let score = 0;
     for (const kw of faq.keywords) {
-      if (q.includes(kw)) score += kw.length; // longer keyword = stronger signal
+      if (q.includes(kw)) score += kw.length;
     }
     if (score > bestScore) {
       bestScore = score;
@@ -23,18 +22,22 @@ function findAnswer(input) {
     }
   }
 
-  return bestScore > 0 ? best.answer : fallbackReply;
+  return bestScore > 0 ? best.answer : fallback;
 }
 
-const INITIAL = [{ role: 'bot', text: botGreeting }];
-
 export function useFaqBot() {
-  const [messages, setMessages] = useState(INITIAL);
+  const { t, i18n } = useTranslation();
+  const [messages, setMessages] = useState([{ role: 'bot', text: t('bot.greeting') }]);
   const [showChips, setShowChips] = useState(true);
+
+  useEffect(() => {
+    setMessages([{ role: 'bot', text: t('bot.greeting') }]);
+    setShowChips(true);
+  }, [i18n.language]);
 
   function send(question) {
     if (!question.trim()) return;
-    const answer = findAnswer(question);
+    const answer = findAnswer(question, t('bot.fallback'));
     setShowChips(false);
     setMessages((m) => [
       ...m,

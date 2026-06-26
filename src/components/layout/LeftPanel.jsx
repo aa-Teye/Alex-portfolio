@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { meta, typewriterTitles } from '../../data/meta';
 import SpyNav from './SpyNav';
 import Typewriter from '../ui/Typewriter';
+import LangSwitcher from '../ui/LangSwitcher';
 
 const GitHubIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -39,6 +41,7 @@ const item = {
 };
 
 export default function LeftPanel() {
+  const { t } = useTranslation();
   return (
     <aside
       style={{
@@ -87,9 +90,7 @@ export default function LeftPanel() {
               lineHeight: 1.65,
             }}
           >
-            I build production systems that aren't just stable —{' '}
-            <span style={{ color: 'var(--accent)', fontWeight: 500 }}>built to scale</span>.
-            Backend architecture, AI platforms, and media systems engineering.
+            {t('hero.tagline')}
           </p>
         </motion.div>
 
@@ -113,7 +114,7 @@ export default function LeftPanel() {
               style={{ width: '7px', height: '7px', background: 'var(--accent)', borderRadius: '50%' }}
               className="pulse-dot"
             />
-            Available for work
+            {t('hero.available')}
           </div>
         </motion.div>
 
@@ -155,7 +156,9 @@ export default function LeftPanel() {
           ))}
         </div>
 
-        <div style={{ marginTop: '1.5rem' }}>
+        <LangSwitcher />
+
+        <div style={{ marginTop: '1.25rem' }}>
           <a
             href={meta.cv}
             target="_blank"
@@ -183,7 +186,7 @@ export default function LeftPanel() {
               e.currentTarget.style.boxShadow = 'none';
             }}
           >
-            ↓ Download CV
+            ↓ {t('hero.downloadCV')}
           </a>
         </div>
       </motion.div>

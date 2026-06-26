@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import FadeIn from '../ui/FadeIn';
 import { skillCategories } from '../../data/skills';
 
@@ -76,14 +77,12 @@ function CategoryCard({ cat, index }) {
 }
 
 export default function Skills() {
+  const { t } = useTranslation();
   return (
     <section id="skills" style={{ marginBottom: '5.5rem' }}>
       <FadeIn>
         <p style={{ color: '#8694AB', marginBottom: '1.75rem', fontSize: '0.93rem', lineHeight: 1.75 }}>
-          A full-stack builder across the entire product lifecycle — from{' '}
-          <span style={{ color: 'var(--accent)' }}>neural network training</span> to{' '}
-          <span style={{ color: 'var(--accent)' }}>live broadcast systems</span> to{' '}
-          <span style={{ color: 'var(--accent)' }}>teaching AI to researchers</span>.
+          {t('skills.tagline')}
         </p>
       </FadeIn>
 

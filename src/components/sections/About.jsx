@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import FadeIn from '../ui/FadeIn';
-import { aboutPhilosophy, aboutBio, companies } from '../../data/meta';
+import { companies } from '../../data/meta';
 
 export default function About() {
+  const { t } = useTranslation();
   return (
     <section id="about" style={{ marginBottom: '5.5rem' }}>
       <FadeIn>
@@ -24,21 +26,16 @@ export default function About() {
               borderRadius: '2px',
             }}
           />
-          My philosophy is that{' '}
-          <strong style={{ color: 'var(--accent)', fontWeight: 600 }}>
-            growth is an engineering problem.
-          </strong>{' '}
-          Whether I'm optimizing high-concurrency backends or developing Graph Neural Networks,
-          my goal is to build systems that aren't just stable — they're built to scale.
+          {t('about.philosophy')}
         </blockquote>
       </FadeIn>
 
-      {aboutBio.map((para, i) => (
-        <FadeIn key={i} delay={0.1 * (i + 1)}>
+      {['about.bio1', 'about.bio2'].map((key, i) => (
+        <FadeIn key={key} delay={0.1 * (i + 1)}>
           <p
             style={{ color: '#8694AB', marginBottom: '1rem', lineHeight: 1.8, fontSize: '0.93rem' }}
             dangerouslySetInnerHTML={{
-              __html: para
+              __html: t(key)
                 .replace(/<strong>/g, '<strong style="color:#CCD6E6;font-weight:500">')
                 .replace(/<accent>/g, '<span style="color:var(--accent)">')
                 .replace(/<\/accent>/g, '</span>'),

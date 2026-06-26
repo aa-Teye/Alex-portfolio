@@ -1,0 +1,49 @@
+{
+  "nav": {
+    "about": "关于我",
+    "experience": "工作经验",
+    "projects": "项目",
+    "skills": "技能",
+    "research": "研究",
+    "contact": "联系我"
+  },
+  "hero": {
+    "available": "正在接受工作机会",
+    "tagline": "我构建不仅稳定而且可扩展的生产系统。后端架构、AI平台和媒体系统工程。",
+    "downloadCV": "下载简历"
+  },
+  "about": {
+    "philosophy": "我的理念是，成长是一个工程问题。无论是优化高并发后端还是开发图神经网络，我的目标是构建不仅稳定、更能够扩展的系统。",
+    "bio1": "我是一名后端架构师，拥有<strong>加纳大学信息技术学士学位</strong>，同时专注于机器学习和计算机视觉。我在研究与生产的交汇处工作——将深度学习想法转化为真正落地的系统。",
+    "bio2": "目前担任加纳大学<strong>研究助理</strong>，导师为Kofi Sarpong Adu-Manu教授，构建用于水基础设施的时空图模型。同时在加纳大学计算机科学系教授<accent>应用AI</accent>短期课程，领导Overcomers Nation Church的媒体与IT工作，并经营科技教育公司DATS。"
+  },
+  "projects": {
+    "flagship": "核心系统",
+    "backend": "后端与基础设施",
+    "websites": "已建设网站",
+    "showMore": "查看更多项目 →",
+    "showFewer": "收起项目 ←",
+    "inProgress": "进行中",
+    "live": "已上线"
+  },
+  "skills": {
+    "tagline": "全栈开发者，覆盖整个产品生命周期——从神经网络训练到直播系统，再到向研究人员教授AI。"
+  },
+  "research": {
+    "tagline": "我相信下一代软件将由智能数据结构驱动。"
+  },
+  "contact": {
+    "heading": "让我们构建可扩展的产品",
+    "tagline": "我目前接受自由职业和合同工作。无论您需要架构后端、构建AI平台还是扩展系统——我很乐意听您介绍。",
+    "emailCTA": "立即联系 ↗",
+    "whatsappCTA": "WhatsApp ↗",
+    "footer": "由 Alex Teye Ametepey 设计与开发",
+    "footerRole": "后端架构师 · Python开发者 · 媒体系统工程师"
+  },
+  "bot": {
+    "greeting": "你好！我是AlexBot——可以问我关于Alex的任何问题。点击下方问题或自行输入。",
+    "fallback": "这个问题我不太确定。如有具体问题，请直接发邮件给Alex：alexteyeametepey@gmail.com——他回复很快。",
+    "placeholder": "询问关于Alex的问题...",
+    "openLabel": "打开FAQ"
+  }
+}
