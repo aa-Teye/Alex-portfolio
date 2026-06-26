@@ -5,9 +5,10 @@ import LeftPanel from './components/layout/LeftPanel';
 import About from './components/sections/About';
 import Experience from './components/sections/Experience';
 import Projects from './components/sections/Projects';
+import Skills from './components/sections/Skills';
 import Research from './components/sections/Research';
 import Contact from './components/sections/Contact';
-import AlexBot from './components/bot/AlexBot';
+import FaqBot from './components/bot/FaqBot';
 
 function Spotlight() {
   const ref = useSpotlight();
@@ -56,13 +57,14 @@ export default function App() {
             <About />
             <Experience />
             <Projects />
+            <Skills />
             <Research />
             <Contact />
           </main>
         </div>
       </div>
 
-      <AlexBot />
+      <FaqBot />
     </>
   );
 }
