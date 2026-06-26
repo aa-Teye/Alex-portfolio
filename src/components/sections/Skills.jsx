@@ -30,7 +30,6 @@ function CategoryCard({ cat, index }) {
 
         {/* header */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1rem' }}>
-          <span style={{ fontSize: '1.25rem' }}>{cat.icon}</span>
           <h3
             className="mono"
             style={{

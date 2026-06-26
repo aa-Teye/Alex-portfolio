@@ -1,7 +1,6 @@
 export const skillCategories = [
   {
     label: 'Backend Engineering',
-    icon: '⚙️',
     color: '#E0B341',
     skills: [
       'Python', 'FastAPI', 'PostgreSQL', 'Redis',
@@ -12,7 +11,6 @@ export const skillCategories = [
   },
   {
     label: 'Frontend & Mobile',
-    icon: '🖥️',
     color: '#60A5FA',
     skills: [
       'React', 'React Native', 'TypeScript', 'JavaScript',
@@ -22,7 +20,6 @@ export const skillCategories = [
   },
   {
     label: 'AI & Machine Learning',
-    icon: '🧠',
     color: '#A78BFA',
     skills: [
       'PyTorch', 'PyTorch Geometric', 'Graph Neural Networks',
@@ -33,7 +30,6 @@ export const skillCategories = [
   },
   {
     label: 'DevOps & Infrastructure',
-    icon: '🚀',
     color: '#34D399',
     skills: [
       'Docker', 'Docker Compose', 'AWS S3', 'AWS CloudFront',
@@ -43,7 +39,6 @@ export const skillCategories = [
   },
   {
     label: 'Media & Broadcast',
-    icon: '🎬',
     color: '#F472B6',
     skills: [
       'vMix', 'Live Streaming', 'Broadcast Systems',
@@ -53,7 +48,6 @@ export const skillCategories = [
   },
   {
     label: 'Team & Management',
-    icon: '🤝',
     color: '#FB923C',
     skills: [
       'Jira', 'Agile / Scrum', 'Git Workflow',
@@ -63,7 +57,6 @@ export const skillCategories = [
   },
   {
     label: 'People & Communication',
-    icon: '💬',
     color: '#FBBF24',
     skills: [
       'Teaching & Instruction', 'Research Communication',

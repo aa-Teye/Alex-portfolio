@@ -37,6 +37,51 @@ export const flagship = [
   },
 ];
 
+export const websites = [
+  {
+    title: 'Overcomers Nation Church',
+    description: 'Full church website with service schedules, media gallery, and ministry pages.',
+    link: 'https://github.com/aa-Teye/OVERCOMERSNATIONCHURCH.ORG',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+  },
+  {
+    title: 'ONC 2026 Redesign',
+    description: 'Redesigned church website with a modern layout and improved content structure.',
+    link: 'https://github.com/aa-Teye/ONC_Website_2026',
+    stack: ['JavaScript', 'CSS'],
+  },
+  {
+    title: 'ONC SPS',
+    description: 'Sermon Presentation System — internal tool for managing and displaying church presentations live.',
+    link: 'https://github.com/aa-Teye/ONC-SPS',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+  },
+  {
+    title: 'Roar Ladies Roar',
+    description: "Event and ministry website for the women's arm of Overcomers Nation Church.",
+    link: 'https://github.com/aa-Teye/roar-ladies-roar-',
+    stack: ['JavaScript', 'CSS'],
+  },
+  {
+    title: 'Korbly Investment Partners',
+    description: 'Corporate website for an investment firm — clean design with service overview and contact.',
+    link: 'https://github.com/aa-Teye/korbly',
+    stack: ['JavaScript', 'CSS'],
+  },
+  {
+    title: 'PropCollect',
+    description: 'Ghana Property Rate System — web platform for local authorities to collect and track property rates.',
+    link: 'https://github.com/aa-Teye/Prop_collect',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+  },
+  {
+    title: 'Samuel & Rebecca',
+    description: 'Digital wedding brochure — a personalised event site for a wedding celebration.',
+    link: 'https://github.com/aa-Teye/samuel1_rebecca1_brochure',
+    stack: ['JavaScript', 'CSS'],
+  },
+];
+
 export const backend = [
   {
     title: 'Dominion Media API: Audio Streaming',
