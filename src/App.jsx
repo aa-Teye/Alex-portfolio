@@ -9,6 +9,7 @@ import Skills from './components/sections/Skills';
 import Research from './components/sections/Research';
 import Contact from './components/sections/Contact';
 import FaqBot from './components/bot/FaqBot';
+import WhatsAppFloat from './components/ui/WhatsAppFloat';
 
 function Spotlight() {
   const ref = useSpotlight();
@@ -65,6 +66,7 @@ export default function App() {
       </div>
 
       <FaqBot />
+      <WhatsAppFloat />
     </>
   );
 }
