@@ -168,7 +168,7 @@ export default function LeftPanel() {
         <div style={{ marginTop: '1.25rem' }}>
           <a
             href={meta.cv}
-            download="Alex_Ametepey_CV.docx"
+            download="Alex_Resume.docx"
             target="_blank"
             rel="noopener noreferrer"
             className="mono"

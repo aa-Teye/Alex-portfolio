@@ -6,7 +6,7 @@ export const meta = {
   email: 'alexteyeametepey@gmail.com',
   github: 'https://github.com/aa-Teye',
   linkedin: 'https://www.linkedin.com/in/alex-ametepey-1123a3205',
-  cv: '/Alex_Ametepey_CV.docx',
+  cv: '/Alex_Resume.docx',
   location: 'Accra, Ghana',
   whatsapp: '+233549044977',
 };
