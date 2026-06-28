@@ -48,6 +48,54 @@ export const faqs = [
     keywords: ['lead', 'leader', 'manage', 'senior', 'mentor', 'supervise', 'head', 'director', 'tech lead'],
     answer: "Yes. Alex is Head of Media Systems & IT at Overcomers Nation Church, where he leads broadcast operations and manages the entire tech infrastructure. He's also led backend architecture decisions at Meditel Inc. on StrokeNet and mentors students through his DATS education venture and the UoG Applied AI course he teaches.",
   },
+  {
+    id: 'availability',
+    question: 'How many hours per week is he available?',
+    keywords: ['hours', 'availability', 'part time', 'full time', 'weekly', 'commitment', 'capacity', 'bandwidth'],
+    answer: "Alex is flexible — he takes on both part-time (20 hrs/week) and full-time (40 hrs/week) contracts depending on the engagement. For long-term projects he can commit to dedicated hours. Email him with your preferred schedule and he'll confirm availability.",
+  },
+  {
+    id: 'start',
+    question: 'When can he start?',
+    keywords: ['start', 'begin', 'join', 'when', 'notice', 'immediately', 'asap', 'available from'],
+    answer: "Alex can typically start within a few days of agreeing on scope and terms. For urgent projects, reach out on WhatsApp at +233 549 044 977 for the fastest response.",
+  },
+  {
+    id: 'nda',
+    question: 'Will he sign an NDA?',
+    keywords: ['nda', 'non disclosure', 'confidential', 'agreement', 'legal', 'ip', 'contract', 'sign'],
+    answer: "Yes — Alex regularly signs NDAs and work-for-hire agreements. All client code and IP belong to the client unless otherwise agreed. He treats client projects with full confidentiality.",
+  },
+  {
+    id: 'ownership',
+    question: 'Who owns the code he writes?',
+    keywords: ['own', 'ownership', 'ip', 'intellectual property', 'rights', 'copyright', 'belong', 'mine'],
+    answer: "By default on paid contracts, all code Alex writes belongs to the client — this is standard in his agreements. He'll confirm this in writing before work starts.",
+  },
+  {
+    id: 'revisions',
+    question: 'Does he do revisions after delivery?',
+    keywords: ['revision', 'change', 'update', 'after', 'bug fix', 'support', 'maintenance', 'post delivery', 'warranty'],
+    answer: "Yes. Alex includes a feedback and revision round in his delivery process. For ongoing maintenance and support beyond the initial contract, he offers retainer arrangements. Bug fixes for issues caused by his own code are handled at no additional cost.",
+  },
+  {
+    id: 'references',
+    question: 'Can he provide references?',
+    keywords: ['reference', 'testimonial', 'recommendation', 'previous client', 'vouch', 'verify', 'proof'],
+    answer: "Yes — Alex can provide references from Meditel Inc. and AreteForge on request. Email him at alexteyeametepey@gmail.com to request references as part of your hiring process.",
+  },
+  {
+    id: 'interview',
+    question: 'Is he open to technical interviews?',
+    keywords: ['interview', 'test', 'assessment', 'trial', 'code test', 'take home', 'challenge', 'screen'],
+    answer: "Yes — Alex is open to technical interviews, take-home assessments, and system design discussions. He prefers live system-design conversations over algorithmic puzzle tests, as they better reflect real production work. A paid trial project is also an option if it suits your process.",
+  },
+  {
+    id: 'tools',
+    question: 'What tools does he use to collaborate?',
+    keywords: ['jira', 'notion', 'slack', 'github', 'linear', 'figma', 'confluence', 'trello', 'asana', 'communication', 'tools'],
+    answer: "Alex is comfortable across the standard remote collaboration stack:\n• Project management: Jira, Linear, Notion, Trello\n• Communication: Slack, Teams, Discord, WhatsApp\n• Version control: GitHub, GitLab\n• Docs: Confluence, Notion\n• Design handoff: Figma\nHe adapts to whatever stack your team already uses.",
+  },
 
   // ── PROJECTS ────────────────────────────────────────────────────
   {
@@ -110,6 +158,30 @@ export const faqs = [
     keywords: ['onc', 'automation', 'hub', 'vmix', 'broadcast', 'live', 'switch', 'graphic', 'church media'],
     answer: "The ONC Media Automation Hub is a React Native app that acts as a remote control for complex live broadcast operations. A FastAPI backend integrates with the vMix API over WebSockets for real-time, low-latency scene switching and graphics control. The 60fps mobile interface lets media teams manage global livestreams from any device — no physical switcher needed.",
   },
+  {
+    id: 'cpg_collect',
+    question: 'Tell me about CPG Collect',
+    keywords: ['cpg', 'collect', 'field', 'offline', 'form', 'data collection', 'sync', 'mobile', 'survey'],
+    answer: "CPG Collect is a field data collection mobile app (React Native) built for offline-first environments. It supports dynamic form branching — where answers determine which questions appear next — and syncs data reliably once connectivity is restored. Designed for field agents operating in areas with intermittent internet, it handles conflict resolution and ensures no submissions are lost.",
+  },
+  {
+    id: 'onc_sps',
+    question: 'What is ONC SPS?',
+    keywords: ['sps', 'shepherd', 'reporting', 'activity', 'tracker', 'pastoral', 'church system'],
+    answer: "ONC SPS (Shepherd Pastoral System) is an internal activity reporting tool for Overcomers Nation Church. It enables church shepherds to log pastoral visits, track member welfare, and report activities to leadership — replacing manual paper-based processes. Alex designed and built the entire platform.",
+  },
+  {
+    id: 'korbly',
+    question: 'Tell me about Korbly',
+    keywords: ['korbly', 'investment', 'corporate', 'firm', 'financial', 'korbly site'],
+    answer: "Korbly Investment Partners is a corporate website Alex designed and built for an investment advisory firm. It presents the firm's services, team, and investment philosophy in a clean, professional layout. Built with performance and credibility in mind — exactly what investment clients expect.",
+  },
+  {
+    id: 'propcollect',
+    question: 'Tell me about PropCollect',
+    keywords: ['propcollect', 'property', 'rate', 'collection', 'local authority', 'government', 'tax'],
+    answer: "PropCollect is a property rate collection platform built for local government authorities in Ghana. It digitises the process of assessing and collecting property rates — replacing manual ledgers with a tracked, auditable system. Alex built both the backend and the web interface for field officers and administrators.",
+  },
 
   // ── TECHNICAL ───────────────────────────────────────────────────
   {
@@ -160,6 +232,90 @@ export const faqs = [
     keywords: ['traffic', 'load', 'scale', 'concurrent', 'thousand', 'million', 'performance', 'bottleneck', 'optimise'],
     answer: "Alex's go-to patterns for high concurrency: Redis distributed locks to eliminate race conditions, PostgreSQL SELECT FOR UPDATE for row-level safety, idempotency keys to handle duplicate requests safely, async FastAPI endpoints to avoid thread blocking, Celery/Kafka for offloading heavy work to background workers, and horizontal scaling via Docker Compose. VelocityPass (10k+ concurrent users) and Fraud Detection (sub-50ms Kafka processing) are live examples.",
   },
+  {
+    id: 'api_design',
+    question: 'How does he design APIs?',
+    keywords: ['api design', 'rest', 'endpoint', 'contract', 'schema', 'openapi', 'swagger', 'versioning'],
+    answer: "Alex designs APIs contract-first: he defines the request/response schemas with Pydantic v2 before writing any logic. Every endpoint is versioned, documented (FastAPI auto-generates OpenAPI/Swagger docs), and includes proper error codes, rate limiting, and authentication. He follows RESTful conventions strictly and uses dependency injection for clean separation of concerns.",
+  },
+  {
+    id: 'security',
+    question: 'How does he handle security?',
+    keywords: ['security', 'auth', 'authentication', 'authorization', 'jwt', 'oauth', 'vulnerability', 'safe', 'secure'],
+    answer: "Alex builds security in from the start:\n• Auth: JWT tokens, OAuth2 flows, role-based access control\n• Data: Pydantic v2 strict validation at every boundary\n• Infrastructure: non-root Docker containers, secrets via environment variables (never in code)\n• APIs: rate limiting, input sanitisation, SQL injection prevention via ORM parameterised queries\n• Transport: HTTPS enforced, CORS configured precisely",
+  },
+  {
+    id: 'testing',
+    question: 'Does he write tests?',
+    keywords: ['test', 'testing', 'unit test', 'integration', 'pytest', 'tdd', 'coverage', 'qa'],
+    answer: "Yes. Alex writes tests as part of development, not as an afterthought. He uses pytest for Python services — unit tests for business logic, integration tests for database interactions, and API tests with FastAPI's TestClient. For critical systems like VelocityPass and UG SmartWallet, he tests concurrency edge cases explicitly (race conditions, duplicate submissions, timeout scenarios).",
+  },
+  {
+    id: 'code_quality',
+    question: 'How does he ensure code quality?',
+    keywords: ['quality', 'review', 'clean code', 'refactor', 'lint', 'black', 'ruff', 'solid', 'patterns'],
+    answer: "Alex enforces quality through: type hints across all Python code, Ruff/Black for formatting and linting, Pydantic v2 for runtime validation, code reviews (he both gives and receives them), and clean architecture principles (separation of concerns, single responsibility). He avoids premature abstractions — three similar lines is better than a fragile helper.",
+  },
+  {
+    id: 'websockets',
+    question: 'Can he build real-time features?',
+    keywords: ['real-time', 'websocket', 'socket.io', 'live', 'push', 'notification', 'event', 'instant'],
+    answer: "Yes — real-time systems are a core strength. Alex has built WebRTC peer connections (StrokeNet medical alerts), Socket.IO event broadcast systems, FastAPI WebSocket endpoints (ONC Automation Hub), and Kafka event streams (Fraud Detection). He understands the full stack: connection management, reconnection logic, message ordering, and fallback strategies.",
+  },
+  {
+    id: 'kafka',
+    question: 'What is his experience with Kafka?',
+    keywords: ['kafka', 'event stream', 'message broker', 'pub sub', 'event driven', 'stream processing'],
+    answer: "Alex has used Apache Kafka in production for event-driven fraud detection — processing financial transactions in under 50ms. He's comfortable with producer/consumer patterns, topic partitioning, consumer groups, offset management, and dead letter queue design. He knows when Kafka is the right tool (high-throughput event streams) vs when simpler solutions like RabbitMQ or Redis pub/sub are better.",
+  },
+  {
+    id: 'celery',
+    question: 'What is his experience with Celery?',
+    keywords: ['celery', 'task queue', 'worker', 'background job', 'async task', 'beat', 'periodic'],
+    answer: "Alex has used Celery extensively — in StrokeNet's AI imaging pipeline (async task dispatch), the Symptom Checker microservice (inference workers with RabbitMQ broker), and periodic beat tasks for scheduled jobs. He handles retry logic, task routing to specific queues, worker concurrency tuning, and dead letter handling for failed tasks.",
+  },
+  {
+    id: 'microservices',
+    question: 'Can he build microservices?',
+    keywords: ['microservice', 'service', 'distributed', 'decompose', 'soa', 'monolith', 'architecture'],
+    answer: "Yes. Alex has architected and built multiple microservice-style systems — the Symptom Checker (inference service decoupled from main API), StrokeNet (alert service, imaging service, notification service), and the Fraud Detection system. He knows when to decompose (genuine scalability requirements, independent deployment needs) and when a well-structured monolith is the better call.",
+  },
+  {
+    id: 'webrtc',
+    question: 'What is his WebRTC experience?',
+    keywords: ['webrtc', 'video', 'audio', 'peer', 'rtc', 'call', 'stream', 'peer-to-peer'],
+    answer: "Alex built WebRTC peer connections in StrokeNet to enable sub-second audio/video communication between patients, doctors, and ambulances. He handled signalling server design, ICE candidate exchange, STUN/TURN configuration, and connection state management. Real-time medical communication was the use case — so reliability and sub-second latency were non-negotiable.",
+  },
+  {
+    id: 'aws',
+    question: 'What AWS services does he use?',
+    keywords: ['aws', 'amazon', 'cloud', 's3', 'cloudfront', 'ec2', 'lambda', 'cloud service'],
+    answer: "Primary AWS services: S3 (object storage for media, backups, uploads), CloudFront (CDN for audio/video delivery at scale), and presigned URLs for secure temporary access. He's designed architectures that offload bandwidth-heavy operations to S3+CloudFront so API servers stay fast. He can work within larger AWS setups (EC2, RDS, SQS) and adapts to whatever cloud the client uses.",
+  },
+  {
+    id: 'docker',
+    question: 'How does he use Docker?',
+    keywords: ['docker', 'container', 'dockerfile', 'compose', 'image', 'build', 'container', 'orchestrate'],
+    answer: "Docker is standard in Alex's workflow — every project ships in containers. He writes multi-stage Dockerfiles (separate build and runtime stages to minimise image size), runs containers as non-root users for security, and uses Docker Compose to orchestrate multi-service stacks locally and in staging. He treats infrastructure as code — no manual server setup.",
+  },
+  {
+    id: 'git',
+    question: 'How does he work with Git?',
+    keywords: ['git', 'github', 'version control', 'branch', 'pr', 'pull request', 'merge', 'commit'],
+    answer: "Alex follows a feature-branch Git workflow: descriptive branch names, atomic commits with clear messages, and pull requests with context — not just code. He's comfortable with rebasing, conflict resolution, tagging releases, and using GitHub Actions to automate CI checks on PRs. He's worked in mono-repos and multi-repo setups.",
+  },
+  {
+    id: 'idempotency',
+    question: 'What is idempotency and why does he use it?',
+    keywords: ['idempotency', 'idempotent', 'duplicate', 'retry', 'safe', 'exactly once', 'double'],
+    answer: "Idempotency means a request can be safely retried without side effects — critical in payment systems, where a network timeout might cause a client to resend a request, accidentally charging twice. Alex implements idempotency keys (a unique ID per request) in financial APIs like UG SmartWallet — if the same key is seen twice, the second request returns the original result instead of executing again. It's a core pattern for production-grade financial systems.",
+  },
+  {
+    id: 'languages',
+    question: 'What programming languages does he know?',
+    keywords: ['language', 'javascript', 'typescript', 'go', 'rust', 'java', 'c++', 'code in', 'write in'],
+    answer: "Primary: Python (production-grade, daily driver), JavaScript/TypeScript (React, React Native, Node.js). Comfortable with: SQL (PostgreSQL query optimisation, indexing strategies), Bash (Linux scripting, CI pipelines). He picks the right tool for the job — Python for AI/backend, TypeScript for frontend, SQL for data.",
+  },
 
   // ── AI / RESEARCH ───────────────────────────────────────────────
   {
@@ -180,6 +336,30 @@ export const faqs = [
     keywords: ['gnn', 'graph neural', 'network', 'node', 'edge', 'geometric', 'graph learning', 'pyg'],
     answer: "Graph Neural Networks (GNNs) are deep learning models that operate on graph-structured data — where entities are nodes and relationships are edges. Alex uses them to model water distribution networks (pipes as edges, junctions as nodes) and detect anomalies like leakage. With PyTorch Geometric, he's built transferable architectures that learn from one network and generalise to others — a key challenge in infrastructure AI.",
   },
+  {
+    id: 'computer_vision',
+    question: 'Does he do computer vision?',
+    keywords: ['computer vision', 'cv', 'image', 'object detection', 'classification', 'cnn', 'vision model', 'camera'],
+    answer: "Yes — Alex has applied computer vision in StrokeNet's medical imaging pipeline (AI-assisted scan analysis via FastAPI + Celery + AWS S3) and in research contexts with PyTorch. He's comfortable with image preprocessing, CNN-based architectures, and deploying vision models as production inference services.",
+  },
+  {
+    id: 'llm',
+    question: 'Has he worked with LLMs or generative AI?',
+    keywords: ['llm', 'gpt', 'chatgpt', 'openai', 'generative', 'language model', 'rag', 'fine tune', 'prompt'],
+    answer: "Alex has integrated LLM APIs into production systems and understands RAG (retrieval-augmented generation), prompt engineering, and API-based inference. He can build AI-powered features (chatbots, document analysis, content generation) by wiring LLM APIs into backend services — and he knows the practical limits: cost, latency, hallucination handling, and when a smaller fine-tuned model is better than a frontier API.",
+  },
+  {
+    id: 'pytorch',
+    question: 'What is his PyTorch experience?',
+    keywords: ['pytorch', 'torch', 'tensor', 'training', 'neural network', 'model training', 'gpu'],
+    answer: "Alex uses PyTorch as his primary deep learning framework — for training GNNs with PyTorch Geometric, building custom model architectures, and running inference in production microservices. He's comfortable with the full training loop: data loading, custom datasets, loss functions, optimisers, gradient clipping, and checkpointing. He also integrates trained models into FastAPI inference endpoints.",
+  },
+  {
+    id: 'ai_production',
+    question: 'Can he deploy AI models to production?',
+    keywords: ['deploy', 'production', 'serve', 'inference', 'api', 'model serving', 'mlops', 'endpoint'],
+    answer: "Yes — Alex bridges the research-to-production gap deliberately. He packages models as FastAPI microservices, uses Celery for async inference (so heavy models don't block API threads), Redis for caching predictions, and Docker for reproducible deployments. The Symptom Checker and StrokeNet imaging pipeline are both examples of research-quality models serving real users in production.",
+  },
 
   // ── MEDIA ────────────────────────────────────────────────────────
   {
@@ -187,6 +367,18 @@ export const faqs = [
     question: 'What media work has he done?',
     keywords: ['media', 'broadcast', 'vmix', 'streaming', 'church', 'audio', 'video', 'production', 'onc', 'live'],
     answer: "Alex is Head of Media Systems & IT at Overcomers Nation Church. He runs all live broadcast operations using vMix, manages audio engineering, built the ONC Media Automation Hub (React Native + FastAPI + WebSockets remote control), and developed multiple church websites and tools. He brings software engineering discipline to broadcast — automating workflows that most churches do manually.",
+  },
+  {
+    id: 'vmix',
+    question: 'What is vMix?',
+    keywords: ['vmix', 'switcher', 'broadcast software', 'live production', 'streaming software', 'obs'],
+    answer: "vMix is professional live production software used for broadcast, streaming, and recording. Alex uses it as Head of Media at Overcomers Nation Church to manage multi-camera setups, graphics overlays, instant replay, and global live streaming. He went further and built a custom React Native app that controls vMix remotely over WebSockets — so the team can manage broadcasts from mobile devices without touching the main production PC.",
+  },
+  {
+    id: 'live_streaming',
+    question: 'Has he done live streaming?',
+    keywords: ['live stream', 'youtube', 'facebook', 'twitch', 'rtmp', 'broadcast', 'go live', 'stream'],
+    answer: "Yes — Alex manages live streaming operations at Overcomers Nation Church, including multi-platform simultaneous streaming (YouTube, Facebook), audio mixing, and on-screen graphics. He's built the technical infrastructure to make these broadcasts automated and reliable, reducing the manual effort required during live services.",
   },
 
   // ── PERSONAL / BACKGROUND ────────────────────────────────────────
@@ -232,6 +424,84 @@ export const faqs = [
     keywords: ['contact', 'email', 'reach', 'message', 'talk', 'connect', 'linkedin', 'github', 'whatsapp', 'phone'],
     answer: "Email: alexteyeametepey@gmail.com\nWhatsApp: +233 549 044 977\nGitHub: github.com/aa-Teye\nLinkedIn: linkedin.com/in/alex-ametepey-1123a3205\n\nOr use the 'Get In Touch' button at the bottom of this page.",
   },
+  {
+    id: 'passion',
+    question: 'What is he passionate about?',
+    keywords: ['passion', 'love', 'enjoy', 'interested', 'excite', 'care', 'motivated', 'driven', 'why build'],
+    answer: "Alex is driven by one idea: growth is an engineering problem. He's passionate about building systems that scale — technically and educationally. He loves the moment a research idea becomes a production system serving real users. He also deeply cares about growing Africa's technical talent — through DATS and his teaching at UoG, he's actively investing in that future.",
+  },
+  {
+    id: 'goals',
+    question: 'What are his career goals?',
+    keywords: ['goal', 'ambition', 'future', 'plan', 'aspire', 'want to', 'next', 'vision', 'long term'],
+    answer: "Alex is working toward becoming a world-class distributed systems and AI infrastructure engineer — the kind who can architect systems at scale and publish the research behind them. In the near term, he's deepening his expertise in financial engineering and graph-based AI. Long term, he wants to build technology that solves real African infrastructure problems at scale.",
+  },
+  {
+    id: 'opensource',
+    question: 'Does he contribute to open source?',
+    keywords: ['open source', 'github', 'contribute', 'public', 'oss', 'community', 'repo', 'project'],
+    answer: "Alex maintains public projects on GitHub at github.com/aa-Teye. He contributes to open source by sharing his architectural patterns and tooling. Most of his production work is private by client agreement, but his portfolio systems (VelocityPass, UG SmartWallet etc.) demonstrate the quality he brings to any codebase.",
+  },
+  {
+    id: 'communication',
+    question: 'How does he communicate with clients?',
+    keywords: ['communicate', 'update', 'report', 'progress', 'async', 'meeting', 'standup', 'response time'],
+    answer: "Alex communicates proactively — he doesn't wait for clients to ask for updates. He sends regular status reports, flags blockers immediately, and prefers async updates (written summaries) over unnecessary meetings. He replies to emails within a few hours during working hours and instantly on WhatsApp for urgent matters. Clients always know where the project stands.",
+  },
+  {
+    id: 'languages_spoken',
+    question: 'What languages does he speak?',
+    keywords: ['speak', 'language', 'english', 'french', 'twi', 'ghana', 'fluent', 'native'],
+    answer: "Alex is fluent in English (professional proficiency — all his work, documentation, and communication is in English) and speaks Twi (a major Ghanaian language). English is his primary working language for all international collaborations.",
+  },
+  {
+    id: 'startup_vs_enterprise',
+    question: 'Has he worked at startups or enterprises?',
+    keywords: ['startup', 'enterprise', 'company', 'corporate', 'big company', 'small team', 'scale up'],
+    answer: "Both. AreteForge gave him startup experience — small agile teams, fast iteration, wearing multiple hats. Meditel Inc. (StrokeNet) was a structured product team with designers, mobile developers, and medical stakeholders. The University of Ghana adds an academic/research dimension. He's comfortable in both fast-moving startup environments and structured cross-functional teams.",
+  },
+  {
+    id: 'what_he_wont_do',
+    question: "What kind of work doesn't he do?",
+    keywords: ["won't", "can't", "not do", "avoid", "outside", "limit", "decline", "scope"],
+    answer: "Alex focuses on backend architecture, AI/ML systems, React/React Native frontends, and DevOps. He doesn't do native iOS/Android (Swift/Kotlin), game development, embedded systems, or basic WordPress/no-code builds. He's honest about scope — if a project needs skills outside his stack, he'll tell you upfront rather than overpromise.",
+  },
+  {
+    id: 'complex_problem',
+    question: 'How does he approach a complex problem?',
+    keywords: ['problem', 'complex', 'hard', 'solve', 'approach', 'think', 'debug', 'architect', 'design'],
+    answer: "Alex follows a structured approach: (1) Understand the actual constraint, not just the symptom — he asks 'why' until he hits the real bottleneck. (2) Design on paper first — schema, data flow, failure modes before writing any code. (3) Build the simplest thing that solves it correctly, then optimise with evidence. (4) Test the failure cases, not just the happy path. This is how VelocityPass's race condition problem was solved — understanding the exact failure mode before touching the code.",
+  },
+  {
+    id: 'areteforge',
+    question: 'What did he do at AreteForge?',
+    keywords: ['areteforge', 'arete', 'forge', 'job', 'work', 'company', 'employer', 'role'],
+    answer: "At AreteForge, Alex worked as a Software Developer building Python backend systems in an agile team. He used Git workflows, participated in sprint planning and code reviews, worked on Jira-managed projects, and contributed to production APIs. It was his first professional engineering role and established his foundations in collaborative development, version control discipline, and production-grade code standards.",
+  },
+  {
+    id: 'meditel',
+    question: 'What did he do at Meditel Inc.?',
+    keywords: ['meditel', 'meditel inc', 'strokenet role', 'backend lead', 'contract', 'medical'],
+    answer: "At Meditel Inc., Alex served as Lead Backend Developer on StrokeNet — a real-time stroke response platform. He designed the entire backend architecture: WebRTC signalling, Socket.IO broadcast, FastAPI REST endpoints, Celery task queues for AI imaging, AWS S3 integration, and the multi-channel emergency alert system. This was a contract role with a cross-functional team including mobile developers, UI/UX designers, and medical professionals.",
+  },
+  {
+    id: 'worldquant',
+    question: 'What is his WorldQuant connection?',
+    keywords: ['worldquant', 'financial engineering', 'quant', 'quantitative', 'wqu', 'finance degree'],
+    answer: "Alex is completing a Financial Engineering programme with WorldQuant University — an elite, fully online programme focused on quantitative finance, statistical modelling, and real-time market data. This directly informs his QuantData Pipeline project (TimescaleDB, tick processing, OHLCV aggregation) and his general approach to data engineering under strict correctness requirements.",
+  },
+  {
+    id: 'prof_adu_manu',
+    question: 'Who does he do research with?',
+    keywords: ['professor', 'supervisor', 'adu-manu', 'kofi', 'research supervisor', 'pi', 'academic'],
+    answer: "Alex conducts research under Prof. Kofi Sarpong Adu-Manu at the University of Ghana. Their work focuses on applying spatio-temporal graph transformers to water distribution network leakage detection — an infrastructure AI problem with real-world impact in water utility management.",
+  },
+  {
+    id: 'philosophy',
+    question: "What is his engineering philosophy?",
+    keywords: ['philosophy', 'principle', 'belief', 'value', 'approach', 'mindset', 'ethos', 'opinion'],
+    answer: "\"Growth is an Engineering Problem.\" Alex believes every bottleneck — technical or personal — can be systematically diagnosed and solved. In code: he designs for failure, not the happy path. He treats documentation as part of the feature, not optional cleanup. He optimises for correctness first, then performance, never the reverse. And he builds so the next engineer (or himself in 6 months) can understand it without a phone call.",
+  },
 ];
 
 export const botGreeting = "Hi! I'm AlexBot — ask me anything about Alex. Use the quick questions below or type your own.";
@@ -251,4 +521,12 @@ export const suggestedChips = [
   "What websites has he built?",
   "Does he teach?",
   "Where is he based?",
+  "Will he sign an NDA?",
+  "Does he do AI / ML work?",
+  "How does he handle high traffic?",
+  "Can he build real-time features?",
+  "What is his engineering philosophy?",
+  "How does he communicate with clients?",
+  "When can he start?",
+  "Does he write tests?",
 ];
