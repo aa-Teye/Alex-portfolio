@@ -2,6 +2,7 @@ import './styles/globals.css';
 import { useSpotlight } from './hooks/useSpotlight';
 import ScrollProgress from './components/layout/ScrollProgress';
 import LeftPanel from './components/layout/LeftPanel';
+import MobileHeader from './components/layout/MobileHeader';
 import About from './components/sections/About';
 import Experience from './components/sections/Experience';
 import Projects from './components/sections/Projects';
@@ -30,8 +31,22 @@ export default function App() {
       <Spotlight />
       <ScrollProgress />
 
+      {/* Mobile layout — visible only on small screens */}
+      <div className="mobile-only" style={{ position: 'relative', zIndex: 2 }}>
+        <MobileHeader />
+        <main style={{ padding: '0 1.5rem 4rem' }}>
+          <About />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Research />
+          <Contact />
+        </main>
+      </div>
+
+      {/* Desktop layout — visible only on large screens */}
       <div
-        className="page-wrap"
+        className="desktop-only page-wrap"
         style={{
           maxWidth: '1180px',
           margin: '0 auto',

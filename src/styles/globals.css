@@ -79,18 +79,20 @@ body {
   100% { transform: scale(1.6); opacity: 0; }
 }
 
-/* mobile */
-@media (max-width: 900px) {
-  .layout-grid {
-    grid-template-columns: 1fr !important;
-    gap: 0 !important;
-  }
-  .left-panel {
-    position: relative !important;
-    height: auto !important;
-    padding: 4rem 0 2rem !important;
-  }
-  .spy-nav { display: none !important; }
-  .right-panel { padding: 1rem 0 4rem !important; }
-  .page-wrap { padding: 0 1.5rem !important; }
+/* visibility helpers */
+.mobile-only  { display: none; }
+.desktop-only { display: block; }
+
+/* mobile breakpoint */
+@media (max-width: 768px) {
+  .mobile-only  { display: block; }
+  .desktop-only { display: none; }
+}
+
+/* hide scrollbar on pill nav */
+.mobile-only ::-webkit-scrollbar { display: none; }
+
+/* section spacing on mobile */
+@media (max-width: 768px) {
+  section + section { margin-top: 3rem; }
 }
