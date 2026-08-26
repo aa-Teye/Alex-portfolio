@@ -80,11 +80,10 @@ add_heading(doc, "Executive Summary")
 sum_p = doc.add_paragraph()
 sum_p.paragraph_format.space_after = Pt(10)
 sum_run = sum_p.add_run(
-    "Results-driven Backend Architect & Systems Engineer with a BSc in Information Technology from the "
-    "University of Ghana. Specialized in designing high-concurrency distributed backends, real-time streaming "
-    "architectures, and productionizing Graph Neural Networks (GNNs). Proven track record leading backend development "
-    "for healthcare platforms (StrokeNet), distributed ticketing systems handling 10k+ concurrent users (VelocityPass), "
-    "and campus financial systems."
+    "Full-Stack & Backend Architect with a BSc in Information Technology from the University of Ghana and a specialized "
+    "focus on AI, Machine Learning, and Computer Vision. Currently a Research Assistant developing spatio-temporal Graph "
+    "Neural Networks, I engineer complete, end-to-end production systems — bridging deep learning models with high-concurrency "
+    "backends, real-time WebRTC/WebSocket streaming, and responsive web/mobile interfaces."
 )
 sum_run.font.name = 'Calibri'
 sum_run.font.size = Pt(10)
