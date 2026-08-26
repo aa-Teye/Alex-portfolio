@@ -1,8 +1,8 @@
 export const flagship = [
   {
     title: 'StrokeNet: Real-Time Response Network',
-    status: 'In Progress',
-    statusType: 'progress',
+    status: 'Live',
+    statusType: 'live',
     link: null,
     bullets: [
       'Lead Backend Developer for a cross-platform ecosystem spanning Web, Mobile, Desktop, and Smartwatches.',
@@ -22,18 +22,6 @@ export const flagship = [
       'Horizontally scalable services deployed via Docker Compose with multi-stage, non-root Dockerfiles.',
     ],
     stack: ['FastAPI', 'Redis', 'PostgreSQL', 'Docker'],
-  },
-  {
-    title: 'UG SmartWallet: Campus Economy',
-    status: 'In Progress',
-    statusType: 'progress',
-    link: 'https://github.com/aa-Teye/UG-SmartWallet',
-    bullets: [
-      'Double-entry ledger system with PostgreSQL row-level locking, ensuring zero money creation or loss during concurrent transactions.',
-      'Strict idempotency-key validation eliminating double-spending from network retries and duplicate QR scans.',
-      'Pydantic v2 enforcing rigorous pre-database validation against malformed financial data.',
-    ],
-    stack: ['FastAPI', 'PostgreSQL', 'Pydantic v2'],
   },
 ];
 
@@ -157,8 +145,8 @@ export const backend = [
   },
   {
     title: 'CPG Collect: Field Data Platform',
-    status: 'In Progress',
-    statusType: 'progress',
+    status: 'Live',
+    statusType: 'live',
     link: null,
     bullets: [
       'Structured data-collection platform for CPG field agents capturing real-time shelf analytics and competitor data.',

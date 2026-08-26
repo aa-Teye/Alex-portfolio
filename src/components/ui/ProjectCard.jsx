@@ -10,25 +10,15 @@ const statusStyle = {
 export default function ProjectCard({ proj, index }) {
   const isLink = Boolean(proj.link);
   const Tag = isLink ? motion.a : motion.article;
-  
-  const handleClick = () => {
-    if (!isLink) {
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
-
   const linkProps = isLink
     ? { href: proj.link, target: '_blank', rel: 'noopener noreferrer' }
-    : { onClick: handleClick };
+    : {};
 
   return (
     <FadeIn delay={index * 0.07}>
       <Tag
         {...linkProps}
-        whileHover={{ y: -4, borderColor: 'var(--accent-line)' }}
+        whileHover={{ y: isLink ? -4 : 0, borderColor: isLink ? 'var(--accent-line)' : 'var(--border)' }}
         style={{
           display: 'block',
           padding: '1.5rem',
@@ -39,7 +29,7 @@ export default function ProjectCard({ proj, index }) {
           position: 'relative',
           overflow: 'hidden',
           textDecoration: 'none',
-          cursor: 'pointer',
+          cursor: isLink ? 'pointer' : 'default',
           transition: 'border-color 0.25s',
         }}
       >
@@ -52,19 +42,21 @@ export default function ProjectCard({ proj, index }) {
             transformOrigin: 'top',
             scaleY: 0,
           }}
-          whileHover={{ scaleY: 1 }}
+          whileHover={{ scaleY: isLink ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         />
 
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem' }}>
           <div style={{ fontSize: '1.05rem', fontWeight: 600, color: '#E8EDF4', display: 'flex', alignItems: 'center', gap: '8px' }}>
             {proj.title}
-            <motion.span
-              style={{ fontSize: '0.82rem', color: '#5C6A82' }}
-              whileHover={{ x: 2, y: -2, color: 'var(--accent)' }}
-            >
-              ↗
-            </motion.span>
+            {isLink && (
+              <motion.span
+                style={{ fontSize: '0.82rem', color: '#5C6A82' }}
+                whileHover={{ x: 2, y: -2, color: 'var(--accent)' }}
+              >
+                ↗
+              </motion.span>
+            )}
           </div>
           <span
             className="mono"
