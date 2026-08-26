@@ -155,7 +155,16 @@ export default function MobileHeader() {
                 <motion.a
                   key={id}
                   href={`#${id}`}
-                  onClick={closeMenu}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    closeMenu();
+                    const el = document.getElementById(id);
+                    if (el) {
+                      const yOffset = -70;
+                      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                      window.scrollTo({ top: y, behavior: 'smooth' });
+                    }
+                  }}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.06, duration: 0.3 }}
@@ -368,6 +377,15 @@ export default function MobileHeader() {
             <a
               key={id}
               href={`#${id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById(id);
+                if (el) {
+                  const yOffset = -70;
+                  const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                  window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+              }}
               className="mono"
               style={{
                 flexShrink: 0,
