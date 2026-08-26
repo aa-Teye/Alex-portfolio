@@ -1,22 +1,50 @@
 import docx
 from docx.shared import Inches, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.enum.table import WD_TABLE_ALIGNMENT
+from docx.oxml import parse_xml
+from docx.opc.constants import RELATIONSHIP_TYPE
 
 doc = docx.Document()
 
-# Set standard page margins (0.7 in for clean layout)
+# Set standard margins (0.75 in)
 for section in doc.sections:
-    section.top_margin = Inches(0.7)
-    section.bottom_margin = Inches(0.7)
-    section.left_margin = Inches(0.7)
-    section.right_margin = Inches(0.7)
+    section.top_margin = Inches(0.75)
+    section.bottom_margin = Inches(0.75)
+    section.left_margin = Inches(0.75)
+    section.right_margin = Inches(0.75)
 
-# Color palette
-COLOR_PRIMARY = RGBColor(15, 23, 42)      # #0F172A Dark Slate
-COLOR_ACCENT = RGBColor(217, 119, 6)      # #D97706 Amber
-COLOR_TEXT = RGBColor(51, 65, 85)        # #334155 Body Text
-COLOR_MUTED = RGBColor(100, 116, 139)    # #64748B Secondary Text
+# Exact Original Palette
+COLOR_PRIMARY = RGBColor(0x1F, 0x4E, 0x79)   # #1F4E79 Deep Blue
+COLOR_ACCENT = RGBColor(0x2E, 0x75, 0xB6)    # #2E75B6 Medium Blue
+COLOR_MUTED_LINE = RGBColor(0xAA, 0xAA, 0xAA) # #AAAAAA Soft Grey
+COLOR_BODY = RGBColor(0x59, 0x59, 0x59)      # #595959 Slate Grey
+COLOR_LINK = "0563C1"                         # #0563C1 Hyperlink Blue
+
+def add_hyperlink(paragraph, url, text):
+    part = paragraph.part
+    r_id = part.relate_to(url, RELATIONSHIP_TYPE.HYPERLINK, is_external=True)
+    hyperlink = parse_xml(f'<w:hyperlink xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" r:id="{r_id}"/>')
+    new_run = parse_xml(f'<w:r xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"/>')
+    rPr = parse_xml(f'<w:rPr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"/>')
+    
+    # Blue color + single underline
+    c = parse_xml(f'<w:color xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" w:val="{COLOR_LINK}"/>')
+    u = parse_xml(f'<w:u xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" w:val="single"/>')
+    rPr.append(c)
+    rPr.append(u)
+    
+    # Font settings
+    sz = parse_xml(f'<w:sz xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" w:val="19"/>') # 9.5pt
+    rPr.append(sz)
+    
+    new_run.append(rPr)
+    
+    # Add text node
+    t = parse_xml(f'<w:t xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xml:space="preserve">{text}</w:t>')
+    new_run.append(t)
+    
+    hyperlink.append(new_run)
+    paragraph._p.append(hyperlink)
 
 # Header
 title_p = doc.add_paragraph()
@@ -35,19 +63,28 @@ sub_run.font.size = Pt(12)
 sub_run.font.bold = True
 sub_run.font.color.rgb = COLOR_ACCENT
 
+# Contact Bar with REAL Clickable Hyperlinks
 contact_p = doc.add_paragraph()
-contact_p.paragraph_format.space_after = Pt(12)
-contact_run = contact_p.add_run(
-    "Accra, Ghana  |  0549044977  |  alexteyeametepey@gmail.com\n"
-    "GitHub: github.com/aa-Teye  |  LinkedIn: linkedin.com/in/alex-ametepey-1123a3205  |  Portfolio: alex-portfolio-sooty.vercel.app"
-)
-contact_run.font.name = 'Calibri'
-contact_run.font.size = Pt(9.5)
-contact_run.font.color.rgb = COLOR_MUTED
+contact_p.paragraph_format.space_after = Pt(14)
+
+def add_plain(text):
+    r = contact_p.add_run(text)
+    r.font.name = 'Calibri'
+    r.font.size = Pt(9.5)
+    r.font.color.rgb = COLOR_BODY
+
+add_plain("Accra, Ghana  |  0549044977  |  ")
+add_hyperlink(contact_p, "mailto:alexteyeametepey@gmail.com", "alexteyeametepey@gmail.com")
+add_plain("  |  ")
+add_hyperlink(contact_p, "https://github.com/aa-Teye", "github.com/aa-Teye")
+add_plain("  |  ")
+add_hyperlink(contact_p, "https://www.linkedin.com/in/alex-ametepey-1123a3205", "linkedin.com/in/alex-ametepey-1123a3205")
+add_plain("  |  ")
+add_hyperlink(contact_p, "https://alex-portfolio-sooty.vercel.app", "alex-portfolio-sooty.vercel.app")
 
 def add_heading(doc, text):
     p = doc.add_paragraph()
-    p.paragraph_format.space_before = Pt(12)
+    p.paragraph_format.space_before = Pt(14)
     p.paragraph_format.space_after = Pt(4)
     p.paragraph_format.keep_with_next = True
     run = p.add_run(text.upper())
@@ -58,26 +95,34 @@ def add_heading(doc, text):
     return p
 
 def add_bullet(doc, bold_prefix, text):
-    p = doc.add_paragraph(style='List Bullet')
+    p = doc.add_paragraph(style='List Paragraph')
     p.paragraph_format.space_before = Pt(0)
-    p.paragraph_format.space_after = Pt(2.5)
+    p.paragraph_format.space_after = Pt(3)
     p.paragraph_format.line_spacing = 1.15
+    p.paragraph_format.left_indent = Inches(0.25)
+    
+    b_run = p.add_run("• ")
+    b_run.font.name = 'Calibri'
+    b_run.font.size = Pt(9.5)
+    b_run.font.color.rgb = COLOR_PRIMARY
+    
     if bold_prefix:
         r1 = p.add_run(bold_prefix)
         r1.font.name = 'Calibri'
         r1.font.size = Pt(9.5)
         r1.font.bold = True
-        r1.font.color.rgb = COLOR_TEXT
+        r1.font.color.rgb = COLOR_PRIMARY
+    
     r2 = p.add_run(text)
     r2.font.name = 'Calibri'
     r2.font.size = Pt(9.5)
-    r2.font.color.rgb = COLOR_TEXT
+    r2.font.color.rgb = COLOR_BODY
     return p
 
 # Professional Summary
 add_heading(doc, "Professional Summary")
 sum_p = doc.add_paragraph()
-sum_p.paragraph_format.space_after = Pt(8)
+sum_p.paragraph_format.space_after = Pt(10)
 sum_p.paragraph_format.line_spacing = 1.15
 sum_run = sum_p.add_run(
     "Results-driven Full-Stack Software Engineer and Systems Architect with a strong track record of leading technical "
@@ -88,7 +133,7 @@ sum_run = sum_p.add_run(
 )
 sum_run.font.name = 'Calibri'
 sum_run.font.size = Pt(9.5)
-sum_run.font.color.rgb = COLOR_TEXT
+sum_run.font.color.rgb = COLOR_BODY
 
 # Technical Skills
 add_heading(doc, "Technical Skills")
@@ -110,130 +155,112 @@ add_bullet(doc, "UGDS System: ", "Led the complete full-stack architecture, API 
 # Professional Experience
 add_heading(doc, "Professional Experience")
 
-# Exp 1
-j1 = doc.add_paragraph()
-j1.paragraph_format.space_before = Pt(6)
-j1.paragraph_format.space_after = Pt(2)
-j1_r1 = j1.add_run("Software Developer (Contract)  |  Aréte Forge")
-j1_r1.font.bold = True
-j1_r1.font.size = Pt(10)
-j1_r1.font.color.rgb = COLOR_PRIMARY
-j1_date = j1.add_run("\tOngoing")
-j1_date.font.size = Pt(9)
-j1_date.font.color.rgb = COLOR_MUTED
+def add_role_header(doc, role, company, dates):
+    p = doc.add_paragraph()
+    p.paragraph_format.space_before = Pt(6)
+    p.paragraph_format.space_after = Pt(2)
+    p.paragraph_format.keep_with_next = True
+    
+    r_role = p.add_run(role)
+    r_role.font.name = 'Calibri'
+    r_role.font.bold = True
+    r_role.font.size = Pt(10)
+    r_role.font.color.rgb = COLOR_PRIMARY
+    
+    r_sep = p.add_run("  |  ")
+    r_sep.font.name = 'Calibri'
+    r_sep.font.size = Pt(10)
+    r_sep.font.color.rgb = COLOR_MUTED_LINE
+    
+    r_comp = p.add_run(company)
+    r_comp.font.name = 'Calibri'
+    r_comp.font.bold = True
+    r_comp.font.size = Pt(10)
+    r_comp.font.color.rgb = COLOR_ACCENT
+    
+    r_date = p.add_run(f"\t{dates}")
+    r_date.font.name = 'Calibri'
+    r_date.font.size = Pt(9)
+    r_date.font.color.rgb = COLOR_BODY
+
+add_role_header(doc, "Software Developer (Contract)", "Aréte Forge", "Ongoing")
 add_bullet(doc, "", "Architect and deploy comprehensive full-stack solutions, engineering seamless experiences from responsive web platforms to mobile applications.")
 add_bullet(doc, "", "Maintain modular backend microservices using Python and FastAPI, bridging APIs with modern frontend interfaces.")
 
-# Exp 2
-j2 = doc.add_paragraph()
-j2.paragraph_format.space_before = Pt(6)
-j2.paragraph_format.space_after = Pt(2)
-j2_r1 = j2.add_run("Backend Developer (Contract)  |  Meditel")
-j2_r1.font.bold = True
-j2_r1.font.size = Pt(10)
-j2_r1.font.color.rgb = COLOR_PRIMARY
-j2_date = j2.add_run("\tOngoing")
-j2_date.font.size = Pt(9)
-j2_date.font.color.rgb = COLOR_MUTED
+add_role_header(doc, "Backend Developer (Contract)", "Meditel", "Ongoing")
 add_bullet(doc, "", "Design and deploy secure RESTful endpoints and high-performance backend services using Python and FastAPI.")
 add_bullet(doc, "", "Collaborate closely with frontend engineers to integrate backend services seamlessly into React-based applications.")
 
-# Exp 3
-j3 = doc.add_paragraph()
-j3.paragraph_format.space_before = Pt(6)
-j3.paragraph_format.space_after = Pt(2)
-j3_r1 = j3.add_run("Growth Engineer (Contract)  |  WAICA")
-j3_r1.font.bold = True
-j3_r1.font.size = Pt(10)
-j3_r1.font.color.rgb = COLOR_PRIMARY
-j3_date = j3.add_run("\tOngoing")
-j3_date.font.size = Pt(9)
-j3_date.font.color.rgb = COLOR_MUTED
+add_role_header(doc, "Growth Engineer (Contract)", "WAICA", "Ongoing")
 add_bullet(doc, "", "Design and implement automated customer acquisition funnels, technical marketing systems, and digital growth campaigns.")
 add_bullet(doc, "", "Leverage data analytics and automation tools to optimize conversion rates and expand digital brand presence.")
 
-# Exp 4
-j4 = doc.add_paragraph()
-j4.paragraph_format.space_before = Pt(6)
-j4.paragraph_format.space_after = Pt(2)
-j4_r1 = j4.add_run("Head of IT & Media Systems  |  Overcomers Nation Church (ONC)")
-j4_r1.font.bold = True
-j4_r1.font.size = Pt(10)
-j4_r1.font.color.rgb = COLOR_PRIMARY
-j4_date = j4.add_run("\t2023 – Present")
-j4_date.font.size = Pt(9)
-j4_date.font.color.rgb = COLOR_MUTED
+add_role_header(doc, "Head of IT & Media Systems", "Overcomers Nation Church (ONC)", "2023 – Present")
 add_bullet(doc, "", "Direct IT operations, advanced AV media broadcasting systems, and internal technical infrastructure.")
 add_bullet(doc, "", "Develop custom full-stack web and mobile applications to automate administrative workflows, community engagement, and digital production.")
 
-# Exp 5
-j5 = doc.add_paragraph()
-j5.paragraph_format.space_before = Pt(6)
-j5.paragraph_format.space_after = Pt(2)
-j5_r1 = j5.add_run("Research Assistant  |  University of Ghana")
-j5_r1.font.bold = True
-j5_r1.font.size = Pt(10)
-j5_r1.font.color.rgb = COLOR_PRIMARY
-j5_date = j5.add_run("\t2023 – Present")
-j5_date.font.size = Pt(9)
-j5_date.font.color.rgb = COLOR_MUTED
+add_role_header(doc, "Research Assistant", "University of Ghana", "2023 – Present")
 add_bullet(doc, "", "Conduct deep learning research under Prof. Kofi Sarpong Adu-Manu focusing on spatio-temporal graph transformer networks.")
 add_bullet(doc, "", "Build automated data pipelines and evaluate model training benchmarks to support advanced AI infrastructure monitoring.")
 
 # Education
 add_heading(doc, "Education")
-e1 = doc.add_paragraph()
-e1.paragraph_format.space_before = Pt(4)
-e1.paragraph_format.space_after = Pt(2)
-e1_r1 = e1.add_run("MSc in Financial Engineering  |  WorldQuant University (USA)")
-e1_r1.font.bold = True
-e1_r1.font.size = Pt(10)
-e1_r1.font.color.rgb = COLOR_PRIMARY
-e1_date = e1.add_run("\tOngoing")
-e1_date.font.size = Pt(9)
-e1_date.font.color.rgb = COLOR_MUTED
 
-e2 = doc.add_paragraph()
-e2.paragraph_format.space_before = Pt(2)
-e2.paragraph_format.space_after = Pt(4)
-e2_r1 = e2.add_run("BSc in Information Technology  |  University of Ghana, Legon")
-e2_r1.font.bold = True
-e2_r1.font.size = Pt(10)
-e2_r1.font.color.rgb = COLOR_PRIMARY
-e2_date = e2.add_run("\tGraduated 2025")
-e2_date.font.size = Pt(9)
-e2_date.font.color.rgb = COLOR_MUTED
+def add_edu_item(doc, degree, institution, dates):
+    p = doc.add_paragraph()
+    p.paragraph_format.space_before = Pt(4)
+    p.paragraph_format.space_after = Pt(2)
+    
+    r_deg = p.add_run(degree)
+    r_deg.font.name = 'Calibri'
+    r_deg.font.bold = True
+    r_deg.font.size = Pt(10)
+    r_deg.font.color.rgb = COLOR_PRIMARY
+    
+    r_sep = p.add_run("  |  ")
+    r_sep.font.name = 'Calibri'
+    r_sep.font.color.rgb = COLOR_MUTED_LINE
+    
+    r_inst = p.add_run(institution)
+    r_inst.font.name = 'Calibri'
+    r_inst.font.size = Pt(10)
+    r_inst.font.color.rgb = COLOR_BODY
+    
+    r_date = p.add_run(f"\t{dates}")
+    r_date.font.name = 'Calibri'
+    r_date.font.size = Pt(9)
+    r_date.font.color.rgb = COLOR_BODY
+
+add_edu_item(doc, "MSc in Financial Engineering", "WorldQuant University (USA)", "Ongoing")
+add_edu_item(doc, "BSc in Information Technology", "University of Ghana, Legon", "Graduated 2025")
 
 # References
 add_heading(doc, "References")
 
-table = doc.add_table(rows=4, cols=3)
-table.alignment = WD_TABLE_ALIGNMENT.CENTER
-table.autofit = False
+def add_ref_item(doc, name, title_org, contact):
+    p1 = doc.add_paragraph()
+    p1.paragraph_format.space_before = Pt(4)
+    p1.paragraph_format.space_after = Pt(1)
+    p1.paragraph_format.keep_with_next = True
+    
+    r_name = p1.add_run(name)
+    r_name.font.name = 'Calibri'
+    r_name.font.bold = True
+    r_name.font.size = Pt(9.5)
+    r_name.font.color.rgb = COLOR_PRIMARY
+    
+    p2 = doc.add_paragraph()
+    p2.paragraph_format.space_before = Pt(0)
+    p2.paragraph_format.space_after = Pt(4)
+    
+    r_info = p2.add_run(f"{title_org}  |  {contact}")
+    r_info.font.name = 'Calibri'
+    r_info.font.size = Pt(9)
+    r_info.font.color.rgb = COLOR_BODY
 
-headers = ["Name", "Role / Organization", "Contact Info"]
-hdr_cells = table.rows[0].cells
-for i, h in enumerate(headers):
-    hdr_cells[i].text = h
-    p = hdr_cells[i].paragraphs[0]
-    p.runs[0].font.bold = True
-    p.runs[0].font.size = Pt(9.5)
-    p.runs[0].font.color.rgb = COLOR_PRIMARY
-
-ref_data = [
-    ("Professor Kofi Sarpong Adu-Manu", "Dept. of Computer Science, University of Ghana", "kaysarpsnr@gmail.com / 0244602374"),
-    ("Alex Quao, PhD", "CEO, Aréte Forge", "0592199757 / 0249221772"),
-    ("Dr. Ebenezer Okronipa", "Pharmacist", "0200994446"),
-]
-
-for row_idx, data in enumerate(ref_data, start=1):
-    row_cells = table.rows[row_idx].cells
-    for col_idx, text in enumerate(data):
-        row_cells[col_idx].text = text
-        p = row_cells[col_idx].paragraphs[0]
-        if p.runs:
-            p.runs[0].font.size = Pt(9)
-            p.runs[0].font.color.rgb = COLOR_TEXT
+add_ref_item(doc, "Professor Kofi Sarpong Adu-Manu", "Dept. of Computer Science, University of Ghana", "kaysarpsnr@gmail.com / 0244602374")
+add_ref_item(doc, "Alex Quao, PhD", "CEO, Aréte Forge", "0592199757 / 0249221772")
+add_ref_item(doc, "Dr. Ebenezer Okronipa", "Pharmacist", "0200994446")
 
 # Save DOCX files
 output_path1 = "Alex_Teye_Ametepey_CV.docx"
@@ -241,4 +268,4 @@ output_path2 = "public/Alex_Resume.docx"
 doc.save(output_path1)
 doc.save(output_path2)
 
-print(f"Successfully created {output_path1} and updated {output_path2}")
+print(f"Successfully generated {output_path1} and {output_path2} matching original design structure!")
