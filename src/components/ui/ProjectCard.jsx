@@ -8,10 +8,21 @@ const statusStyle = {
 };
 
 export default function ProjectCard({ proj, index }) {
-  const Tag = proj.link ? motion.a : motion.article;
-  const linkProps = proj.link
+  const isLink = Boolean(proj.link);
+  const Tag = isLink ? motion.a : motion.article;
+  
+  const handleClick = () => {
+    if (!isLink) {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
+  const linkProps = isLink
     ? { href: proj.link, target: '_blank', rel: 'noopener noreferrer' }
-    : {};
+    : { onClick: handleClick };
 
   return (
     <FadeIn delay={index * 0.07}>
@@ -28,7 +39,7 @@ export default function ProjectCard({ proj, index }) {
           position: 'relative',
           overflow: 'hidden',
           textDecoration: 'none',
-          cursor: proj.link ? 'pointer' : 'default',
+          cursor: 'pointer',
           transition: 'border-color 0.25s',
         }}
       >
@@ -48,14 +59,12 @@ export default function ProjectCard({ proj, index }) {
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem' }}>
           <div style={{ fontSize: '1.05rem', fontWeight: 600, color: '#E8EDF4', display: 'flex', alignItems: 'center', gap: '8px' }}>
             {proj.title}
-            {proj.link && (
-              <motion.span
-                style={{ fontSize: '0.82rem', color: '#5C6A82' }}
-                whileHover={{ x: 2, y: -2, color: 'var(--accent)' }}
-              >
-                ↗
-              </motion.span>
-            )}
+            <motion.span
+              style={{ fontSize: '0.82rem', color: '#5C6A82' }}
+              whileHover={{ x: 2, y: -2, color: 'var(--accent)' }}
+            >
+              ↗
+            </motion.span>
           </div>
           <span
             className="mono"

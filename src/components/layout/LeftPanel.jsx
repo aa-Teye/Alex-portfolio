@@ -52,10 +52,12 @@ export default function LeftPanel() {
   return (
     <aside
       style={{
-        position: 'sticky', top: 0, height: '100vh',
+        position: 'sticky', top: 0, maxHeight: '100vh',
         display: 'flex', flexDirection: 'column',
         justifyContent: 'space-between',
-        padding: '5.5rem 0 4rem',
+        padding: '3.5rem 0 3rem',
+        overflowY: 'auto',
+        scrollbarWidth: 'none',
       }}
     >
       <motion.div variants={container} initial="hidden" animate="show">

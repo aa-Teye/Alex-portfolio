@@ -7,6 +7,14 @@ export default function SpyNav() {
   const { t } = useTranslation();
   const activeId = useScrollSpy(NAV_IDS);
 
+  const handleClick = (e, id) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav style={{ marginTop: '3.5rem' }}>
       <ul style={{ listStyle: 'none', padding: 0 }}>
@@ -17,6 +25,7 @@ export default function SpyNav() {
             <li key={id} style={{ marginBottom: '4px' }}>
               <a
                 href={`#${id}`}
+                onClick={(e) => handleClick(e, id)}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -29,6 +38,7 @@ export default function SpyNav() {
                   textTransform: 'uppercase',
                   textDecoration: 'none',
                   transition: 'color 0.2s',
+                  cursor: 'pointer',
                 }}
               >
                 <span

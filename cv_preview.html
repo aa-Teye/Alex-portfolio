@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alex Teye Ametepey - Curriculum Vitae</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0F172A;
+      --accent: #D97706;
+      --accent-light: #FFFBEB;
+      --text: #334155;
+      --text-dark: #0F172A;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --bg: #F8FAFC;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      font-size: 14px;
+      padding: 2rem 1rem;
+    }
+
+    .no-print-bar {
+      max-width: 800px;
+      margin: 0 auto 1.5rem auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FFFFFF;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+
+    .btn-print {
+      background-color: var(--primary);
+      color: #FFF;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.875rem;
+      transition: background 0.2s;
+    }
+
+    .btn-print:hover {
+      background-color: #1E293B;
+    }
+
+    .cv-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      padding: 3rem 3.5rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+    }
+
+    header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 0.35rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .contact-item a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    section {
+      margin-bottom: 1.75rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.35rem;
+      margin-bottom: 1rem;
+    }
+
+    .summary-text {
+      font-size: 0.935rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+    }
+
+    .skill-cat {
+      background: var(--bg);
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .skill-cat-title {
+      font-weight: 700;
+      font-size: 0.825rem;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .skill-list {
+      font-size: 0.85rem;
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    .job-item, .project-item {
+      margin-bottom: 1.25rem;
+    }
+
+    .job-item:last-child, .project-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .job-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .job-company {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .job-date {
+      font-size: 0.825rem;
+      font-weight: 500;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-muted);
+    }
+
+    ul.bullets {
+      list-style-type: disc;
+      padding-left: 1.2rem;
+      margin-top: 0.4rem;
+    }
+
+    ul.bullets li {
+      margin-bottom: 0.3rem;
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    .tech-stack {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.775rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    @media print {
+      body {
+        background: #FFF;
+        padding: 0;
+        font-size: 13px;
+      }
+
+      .no-print-bar {
+        display: none !important;
+      }
+
+      .cv-container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+
+      a {
+        text-decoration: none !important;
+        color: var(--text-dark) !important;
+      }
+
+      @page {
+        margin: 1.5cm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="no-print-bar">
+    <div><strong>Alex Teye Ametepey - Curriculum Vitae</strong></div>
+    <button class="btn-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+  </div>
+
+  <div class="cv-container">
+    <header>
+      <h1>Alex Teye Ametepey</h1>
+      <div class="subtitle">Backend Architect & Systems Engineer</div>
+      <div class="contact-bar">
+        <span class="contact-item">📍 Accra, Ghana</span>
+        <span class="contact-item">✉️ <a href="mailto:alexteyeametepey@gmail.com">alexteyeametepey@gmail.com</a></span>
+        <span class="contact-item">📱 +233 54 904 4977</span>
+        <span class="contact-item">🌐 <a href="https://github.com/aa-Teye" target="_blank">github.com/aa-Teye</a></span>
+        <span class="contact-item">💼 <a href="https://www.linkedin.com/in/alex-ametepey-1123a3205" target="_blank">LinkedIn</a></span>
+      </div>
+    </header>
+
+    <section>
+      <h2>Executive Summary</h2>
+      <p class="summary-text">
+        Backend Architect & Systems Engineer with a <strong>BSc in Information Technology</strong> from the University of Ghana. Specialized in high-concurrency distributed backends, real-time streaming architectures, and productionizing Graph Neural Networks (GNNs). Proven track record architecting critical healthcare networks (StrokeNet), distributed ticketing engines handling 10k+ concurrent users (VelocityPass), and campus financial systems. Built to scale.
+      </p>
+    </section>
+
+    <section>
+      <h2>Technical Competencies</h2>
+      <div class="skills-grid">
+        <div class="skill-cat">
+          <div class="skill-cat-title">Backend Architecture</div>
+          <div class="skill-list">Python, FastAPI, PostgreSQL, Redis, Celery, RabbitMQ, Kafka, TimescaleDB, Pydantic v2, REST, WebSockets, WebRTC</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-title">AI & Machine Learning</div>
+          <div class="skill-list">PyTorch, PyTorch Geometric, Graph Neural Networks (GNNs), Spatio-Temporal Models, Computer Vision, AI Microservices</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-title">DevOps & Cloud</div>
+          <div class="skill-list">Docker, Docker Compose, Multi-stage Builds, AWS S3, AWS CloudFront, Git, GitHub Actions (CI/CD), Linux</div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-title">Systems & Leadership</div>
+          <div class="skill-list">React, React Native, TypeScript, vMix API, Agile/Scrum, Git Workflow, Technical Leadership, Mentorship</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Professional Experience</h2>
+      
+      <div class="job-item">
+        <div class="job-header">
+          <div>
+            <span class="job-title">Research Assistant</span> — <span class="job-company">University of Ghana</span>
+          </div>
+          <span class="job-date">2023 — Present</span>
+        </div>
+        <ul class="bullets">
+          <li>Conduct deep learning research on Spatio-Temporal Graph Transformers for water distribution infrastructure monitoring under Prof. Kofi Sarpong Adu-Manu.</li>
+          <li>Engineered the DiTEC normalization and feature tensor extraction pipeline for PyTorch Geometric models.</li>
+          <li>Developed Transferable Foundation GNN architectures, reducing model convergence time by 40%.</li>
+        </ul>
+      </div>
+
+      <div class="job-item">
+        <div class="job-header">
+          <div>
+            <span class="job-title">Lead Backend Developer (Contract)</span> — <span class="job-company">Meditel Inc.</span>
+          </div>
+          <span class="job-date">Ongoing</span>
+        </div>
+        <ul class="bullets">
+          <li>Lead backend architect for <strong>StrokeNet</strong>, a real-time emergency stroke response platform connecting patients, ambulances, and hospital staff.</li>
+          <li>Architected WebRTC and Socket.IO real-time alert routing infrastructure for instant emergency notifications.</li>
+          <li>Built automated AI medical imaging assessment pipelines utilizing FastAPI, Celery queues, and AWS S3 storage.</li>
+        </ul>
+      </div>
+
+      <div class="job-item">
+        <div class="job-header">
+          <div>
+            <span class="job-title">Software Developer</span> — <span class="job-company">AreteForge</span>
+          </div>
+          <span class="job-date">Ongoing</span>
+        </div>
+        <ul class="bullets">
+          <li>Engineered production-grade Python backend microservices following Agile/Scrum methodologies with Git and Jira.</li>
+        </ul>
+      </div>
+
+      <div class="job-item">
+        <div class="job-header">
+          <div>
+            <span class="job-title">Applied AI Instructor & TA</span> — <span class="job-company">University of Ghana (Dept. of CS)</span>
+          </div>
+          <span class="job-date">Ongoing</span>
+        </div>
+        <ul class="bullets">
+          <li>Instruct short courses in Applied AI, practical tooling, prompt engineering, and workflow optimization.</li>
+        </ul>
+      </div>
+
+      <div class="job-item">
+        <div class="job-header">
+          <div>
+            <span class="job-title">Head, Media Systems & IT Unit</span> — <span class="job-company">Overcomers Nation Church</span>
+          </div>
+          <span class="job-date">2023 — Present</span>
+        </div>
+        <ul class="bullets">
+          <li>Direct media broadcast teams and IT operations; built real-time WebSocket live switching apps integrating React Native with vMix at 60fps.</li>
+        </ul>
+      </div>
+    </div>
+
+    <section style="margin-top: 1.5rem;">
+      <h2>Featured Engineering Projects</h2>
+      
+      <div class="project-item">
+        <div class="job-title">StrokeNet — Real-Time Response Ecosystem</div>
+        <div class="tech-stack">Stack: FastAPI, WebRTC, Socket.IO, Celery, AWS S3</div>
+        <ul class="bullets">
+          <li>Multi-platform real-time nervous system connecting patients, doctors, and emergency drivers.</li>
+        </ul>
+      </div>
+
+      <div class="project-item">
+        <div class="job-title">VelocityPass — Distributed Event Ticketing Engine</div>
+        <div class="tech-stack">Stack: FastAPI, Redis, PostgreSQL, Docker</div>
+        <ul class="bullets">
+          <li>Eliminated race conditions during 10k+ concurrent user spikes using Redis distributed locks and PostgreSQL row-level locks.</li>
+        </ul>
+      </div>
+
+      <div class="project-item">
+        <div class="job-title">UG SmartWallet — Campus Financial Ledger</div>
+        <div class="tech-stack">Stack: FastAPI, PostgreSQL, Pydantic v2</div>
+        <ul class="bullets">
+          <li>Double-entry financial system enforcing strict transaction idempotency and zero money corruption.</li>
+        </ul>
+      </div>
+
+      <div class="project-item">
+        <div class="job-title">Dominion Media API — High-Concurrency Streaming</div>
+        <div class="tech-stack">Stack: FastAPI, Python Async Generators, AWS S3, CloudFront</div>
+        <ul class="bullets">
+          <li>Decoupled audio streaming architecture utilizing CloudFront presigned URLs for thousands of listeners.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="job-header">
+        <div>
+          <span class="job-title">BSc in Information Technology</span> — <span class="job-company">University of Ghana</span>
+        </div>
+        <span class="job-date">Graduated 2025</span>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
