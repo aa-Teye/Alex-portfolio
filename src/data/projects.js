@@ -22,7 +22,7 @@ export const flagship = [
     stack: ['React', 'FastAPI', 'PostgreSQL', 'Tailwind CSS'],
   },
   {
-    title: 'Automated Examination Management System',
+    title: 'Learning and Examination Management System',
     status: 'Live',
     statusType: 'live',
     link: null,
@@ -158,10 +158,10 @@ export const backend = [
     statusType: 'live',
     link: null,
     bullets: [
-      'Ecological analytics and sustainability tracking platform displaying real-time environmental metrics and reports.',
-      'Built responsive frontend interfaces and data visualization dashboards.',
+      'Ecological analytics and sustainability tracking platform displaying real-time environmental metrics and data visualizations.',
+      'Includes Windows desktop, cross-platform mobile, responsive web app, and God’s Eye IoT integration.',
     ],
-    stack: ['JavaScript', 'React', 'Tailwind CSS', 'Vercel'],
+    stack: ['JavaScript', 'React', 'Tailwind CSS', 'IoT', 'Vercel'],
   },
   {
     title: 'ONC Media Automation Hub',

@@ -158,19 +158,19 @@ sum_run.font.color.rgb = COLOR_BODY
 
 # 2. Technical Skills
 add_heading(doc, "Technical Skills")
-add_bullet(doc, "Languages: ", "Python, JavaScript (ES6+), Java, SQL, HTML5, CSS3")
+add_bullet(doc, "Languages: ", "Python, JavaScript (ES6+), Java, etc.")
 add_bullet(doc, "Frontend & Mobile: ", "React, Next.js, Astro, Vite, Tailwind CSS, Cross-Platform Mobile Development (React Native), Electron")
 add_bullet(doc, "Backend & Architecture: ", "FastAPI, RESTful API Design, System Design, JWT Authentication, Redis (Caching & Queues)")
 add_bullet(doc, "Databases & Storage: ", "Neon (Serverless PostgreSQL), PostgreSQL, SQLite, Relational Schema Design")
 add_bullet(doc, "DevOps & Workflows: ", "Vercel, Render, Git, GitHub, Jira, Agile Sprint Planning")
-add_bullet(doc, "Media Systems: ", "Live Broadcast Routing (vMix)")
+add_bullet(doc, "Media Systems: ", "Live Broadcast Routing (vMix), OBS, Freeshow, etc.")
 
 # 3. Key Projects
 add_heading(doc, "Key Full-Stack & System Architecture Projects")
 add_bullet(doc, "Ghana HIVdr Platform (Ongoing): ", "Lead the full-stack architecture and data synchronization pipelines for secure, real-time health-tech reporting and record tracking.")
 add_bullet(doc, "UGDS Customer Care System: ", "Led the full-stack architecture, API endpoint specifications, and database performance optimization for real-time customer care and ticket escalation.")
-add_bullet(doc, "Automated Examination Management System: ", "Built a secure assessment engine supporting automated grading logic, audit logging, and encrypted academic record handling.")
-add_bullet(doc, "EcoPulse Web Platform: ", "Developed an ecological analytics and sustainability tracking platform displaying real-time environmental metrics and data visualizations.")
+add_bullet(doc, "Learning and Examination Management System: ", "Built a secure assessment engine supporting automated grading logic, audit logging, and encrypted academic record handling.")
+add_bullet(doc, "EcoPulse Web Platform [Win, mobile and web app, and God's Eye IoT integration]: ", "Developed an ecological analytics and sustainability tracking platform displaying real-time environmental metrics and data visualizations.")
 add_bullet(doc, "Enterprise ERP & Custom CMS Solutions: ", "Architected multi-tenant database schemas, automated operational workflows, and role-based access control (RBAC) systems across diverse client requirements.")
 add_bullet(doc, "Church Management & Operations System (SPS): ", "Engineered an integrated platform for database administration, member tracking, and automated service coordination.")
 
@@ -183,7 +183,7 @@ def add_role_header(doc, role, company, dates):
     p.paragraph_format.space_after = Pt(2)
     p.paragraph_format.keep_with_next = True
     
-    # Right-aligned tab stop at 6.5 in for dates
+    # Right-aligned tab stop at 7.0 in for dates
     p.paragraph_format.tab_stops.add_tab_stop(Inches(7.0), WD_TAB_ALIGNMENT.RIGHT)
     
     r_role = p.add_run(role)
@@ -286,7 +286,7 @@ def add_ref_item(doc, name, title_org, contact):
 
 add_ref_item(doc, "Professor Kofi Sarpong Adu-Manu", "Dept. of Computer Science, University of Ghana", "kaysarpsnr@gmail.com / 0244602374")
 add_ref_item(doc, "Alex Quao, PhD", "CEO, Aréte Forge", "0592199757 / 0249221772")
-add_ref_item(doc, "Dr. Ebenezer Okronipa", "Pharmacist", "0200994446")
+add_ref_item(doc, "Dr. Ebenezer Okronipa", "Pharmacist, General Overseer of EOM", "0200994446")
 
 # Save DOCX files
 output_path1 = "Alex_Teye_Ametepey_CV.docx"

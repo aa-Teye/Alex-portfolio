@@ -41,9 +41,9 @@ export const skillCategories = [
     label: 'Media & Broadcast',
     color: '#F472B6',
     skills: [
-      'vMix', 'Live Streaming', 'Broadcast Systems',
+      'vMix', 'OBS', 'Freeshow', 'Live Streaming', 'Broadcast Systems',
       'WebRTC Streaming', 'Audio Engineering',
-      'Media Automation', 'OBS', 'Video Production',
+      'Media Automation', 'Video Production',
     ],
   },
   {
