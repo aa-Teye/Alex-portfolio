@@ -150,7 +150,6 @@ add_bullet(doc, "Ghana HIVdr Platform (Ongoing): ", "Lead the full-stack archite
 add_bullet(doc, "UGDS Customer Care System: ", "Led the full-stack architecture, API endpoint specifications, and database performance optimization for real-time customer care and ticket escalation.")
 add_bullet(doc, "Automated Examination Management System: ", "Built a secure assessment engine supporting automated grading logic, audit logging, and encrypted academic record handling.")
 add_bullet(doc, "EcoPulse Web Platform: ", "Developed an ecological analytics and sustainability tracking platform displaying real-time environmental metrics and data visualizations.")
-add_bullet(doc, "Queen Tracker System: ", "Engineered a resource and logistics tracking platform using serverless PostgreSQL for real-time state management and asset reporting.")
 add_bullet(doc, "Enterprise ERP & Custom CMS Solutions: ", "Architected multi-tenant database schemas, automated operational workflows, and role-based access control (RBAC) systems across diverse client requirements.")
 add_bullet(doc, "Church Management & Operations System (SPS): ", "Engineered an integrated platform for database administration, member tracking, and automated service coordination.")
 

@@ -164,16 +164,6 @@ export const backend = [
     stack: ['JavaScript', 'React', 'Tailwind CSS', 'Vercel'],
   },
   {
-    title: 'Queen Tracker System',
-    status: 'Live',
-    statusType: 'live',
-    link: null,
-    bullets: [
-      'Resource and logistics tracking system built with serverless PostgreSQL for instant state management and asset reporting.',
-    ],
-    stack: ['JavaScript', 'React', 'Neon PostgreSQL', 'Vercel'],
-  },
-  {
     title: 'ONC Media Automation Hub',
     status: 'Live',
     statusType: 'live',
