@@ -1,5 +1,38 @@
 export const flagship = [
   {
+    title: 'Ghana HIVdr Platform',
+    status: 'Live',
+    statusType: 'live',
+    link: null,
+    bullets: [
+      'Lead the full-stack architecture and data synchronization pipelines for secure, real-time health-tech reporting and record tracking.',
+      'Engineered role-based access control (RBAC) and automated sync mechanisms for encrypted medical records.',
+    ],
+    stack: ['Next.js', 'FastAPI', 'PostgreSQL', 'Docker'],
+  },
+  {
+    title: 'UGDS Customer Care System',
+    status: 'Live',
+    statusType: 'live',
+    link: null,
+    bullets: [
+      'Led the complete full-stack architecture, API endpoint specifications, and database performance optimization as Lead Engineer.',
+      'Streamlined customer issue tracking, real-time ticket escalation, and administrative analytics dashboards.',
+    ],
+    stack: ['React', 'FastAPI', 'PostgreSQL', 'Tailwind CSS'],
+  },
+  {
+    title: 'Automated Examination Management System',
+    status: 'Live',
+    statusType: 'live',
+    link: null,
+    bullets: [
+      'Built a secure assessment engine supporting automated grading logic, audit logging, and encrypted academic record handling.',
+      'Optimized database queries and API response times for high-concurrency exam submission windows.',
+    ],
+    stack: ['Python', 'FastAPI', 'PostgreSQL', 'JWT'],
+  },
+  {
     title: 'StrokeNet: Real-Time Response Network',
     status: 'Live',
     statusType: 'live',
@@ -15,7 +48,7 @@ export const flagship = [
     title: 'VelocityPass: Event Ticketing Engine',
     status: 'Live',
     statusType: 'live',
-    link: 'https://github.com/aa-Teye/VelocityPass',
+    link: null,
     bullets: [
       'High-throughput API using FastAPI and Redis distributed locks to eliminate race conditions during 10k+ concurrent traffic spikes.',
       'PostgreSQL row-level locking (SELECT FOR UPDATE) and Unit of Work patterns guaranteeing atomic transactions.',
@@ -29,43 +62,43 @@ export const websites = [
   {
     title: 'Overcomers Nation Church',
     description: 'Full church website with service schedules, media gallery, and ministry pages.',
-    link: 'https://github.com/aa-Teye/OVERCOMERSNATIONCHURCH.ORG',
+    link: null,
     stack: ['HTML', 'CSS', 'JavaScript'],
   },
   {
     title: 'ONC 2026 Redesign',
     description: 'Redesigned church website with a modern layout and improved content structure.',
-    link: 'https://github.com/aa-Teye/ONC_Website_2026',
+    link: null,
     stack: ['JavaScript', 'CSS'],
   },
   {
     title: 'ONC SPS',
     description: 'Shepherd reporting system for Overcomers Nation Church, tracking and logging all shepherd activities across the church.',
-    link: 'https://github.com/aa-Teye/ONC-SPS',
+    link: null,
     stack: ['HTML', 'CSS', 'JavaScript'],
   },
   {
     title: 'Roar Ladies Roar',
     description: "Event and ministry website for the women's arm of Overcomers Nation Church.",
-    link: 'https://github.com/aa-Teye/roar-ladies-roar-',
+    link: null,
     stack: ['JavaScript', 'CSS'],
   },
   {
     title: 'Korbly Investment Partners',
     description: 'Professional website for Korbly Investment Partners, showcasing investment services, portfolio, and firm contact.',
-    link: 'https://github.com/aa-Teye/korbly',
+    link: null,
     stack: ['JavaScript', 'CSS'],
   },
   {
     title: 'PropCollect',
     description: 'Property rate collection platform for local authorities, digitising the process of tracking and managing property rates in Ghana.',
-    link: 'https://github.com/aa-Teye/Prop_collect',
+    link: null,
     stack: ['HTML', 'CSS', 'JavaScript'],
   },
   {
     title: 'Samuel & Rebecca',
     description: 'Digital wedding brochure: a personalised event site for a wedding celebration.',
-    link: 'https://github.com/aa-Teye/samuel1_rebecca1_brochure',
+    link: null,
     stack: ['JavaScript', 'CSS'],
   },
 ];
@@ -75,7 +108,7 @@ export const backend = [
     title: 'Dominion Media API: Audio Streaming',
     status: 'Live',
     statusType: 'live',
-    link: 'https://github.com/aa-Teye/Dominion-Media',
+    link: null,
     bullets: [
       'Memory-efficient streaming using Python async generators and FastAPI StreamingResponse, drastically reducing server footprint.',
       'Offloaded heavy bandwidth ops to AWS S3 and CloudFront via secure presigned URLs.',
@@ -87,7 +120,7 @@ export const backend = [
     title: 'QuantData Pipeline: Financial Data API',
     status: 'Live',
     statusType: 'live',
-    link: 'https://github.com/aa-Teye/QuantData-Pipeline',
+    link: null,
     bullets: [
       'Async bulk-insert pipeline to TimescaleDB processing thousands of market ticks per second.',
       'Rust-backed Pydantic v2 validation ensuring zero corrupted data points enter the pipeline.',
@@ -99,7 +132,7 @@ export const backend = [
     title: 'Symptom Checker Microservice',
     status: 'Live',
     statusType: 'live',
-    link: 'https://github.com/aa-Teye/Symptom-Checker',
+    link: null,
     bullets: [
       'Decoupled heavy AI inference from the main API using Celery and RabbitMQ, preventing pool exhaustion and gateway timeouts.',
       'Robust worker queue with automatic retries and Redis state management, allowing independent horizontal scaling.',
@@ -111,13 +144,34 @@ export const backend = [
     title: 'Fraud Detection: Real-Time Pipeline',
     status: 'Live',
     statusType: 'live',
-    link: 'https://github.com/aa-Teye/Fraud-Detection',
+    link: null,
     bullets: [
       'Low-latency fraud detection using Kafka streams to process transaction events in under 50ms.',
       'In-memory Redis caching layer for rapid feature retrieval, minimizing database round-trips.',
       'Async FastAPI microservice exposing model predictions without blocking event processing.',
     ],
     stack: ['FastAPI', 'Kafka', 'Redis', 'ML'],
+  },
+  {
+    title: 'EcoPulse Web Platform',
+    status: 'Live',
+    statusType: 'live',
+    link: null,
+    bullets: [
+      'Ecological analytics and sustainability tracking platform displaying real-time environmental metrics and reports.',
+      'Built responsive frontend interfaces and data visualization dashboards.',
+    ],
+    stack: ['JavaScript', 'React', 'Tailwind CSS', 'Vercel'],
+  },
+  {
+    title: 'Queen Tracker System',
+    status: 'Live',
+    statusType: 'live',
+    link: null,
+    bullets: [
+      'Resource and logistics tracking system built with serverless PostgreSQL for instant state management and asset reporting.',
+    ],
+    stack: ['JavaScript', 'React', 'Neon PostgreSQL', 'Vercel'],
   },
   {
     title: 'ONC Media Automation Hub',
