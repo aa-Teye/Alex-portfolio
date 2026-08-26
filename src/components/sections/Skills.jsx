@@ -84,6 +84,10 @@ export default function Skills() {
   const { t } = useTranslation();
   return (
     <section id="skills" style={{ marginBottom: '5.5rem' }}>
+      <div className="mono" style={{ fontSize: '0.78rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#CCD6E6', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <span style={{ width: '24px', height: '1px', background: 'var(--accent)' }} />
+        {t('nav.skills')}
+      </div>
       <FadeIn>
         <p style={{ color: '#8694AB', marginBottom: '1.75rem', fontSize: '0.93rem', lineHeight: 1.75 }}>
           {t('skills.tagline')}

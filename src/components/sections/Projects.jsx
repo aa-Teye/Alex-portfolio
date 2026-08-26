@@ -31,6 +31,10 @@ export default function Projects() {
 
   return (
     <section id="projects" style={{ marginBottom: '5.5rem' }}>
+      <div className="mono" style={{ fontSize: '0.78rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#CCD6E6', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <span style={{ width: '24px', height: '1px', background: 'var(--accent)' }} />
+        {t('nav.projects')}
+      </div>
       <GroupLabel>{t('projects.flagship')}</GroupLabel>
       {flagship.map((p, i) => (
         <ProjectCard key={p.title} proj={p} index={i} />
