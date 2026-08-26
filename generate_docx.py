@@ -82,6 +82,10 @@ add_hyperlink(contact_p, "https://www.linkedin.com/in/alex-ametepey-1123a3205", 
 add_plain("  |  ")
 add_hyperlink(contact_p, "https://alex-portfolio-sooty.vercel.app", "alex-portfolio-sooty.vercel.app")
 
+# Add elegant header bottom divider line (#1F4E79)
+header_pBdr = parse_xml(r'<w:pBdr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:bottom w:val="single" w:sz="8" w:space="5" w:color="1F4E79"/></w:pBdr>')
+contact_p._p.get_or_add_pPr().append(header_pBdr)
+
 def add_heading(doc, text):
     p = doc.add_paragraph()
     p.paragraph_format.space_before = Pt(14)
@@ -92,6 +96,10 @@ def add_heading(doc, text):
     run.font.size = Pt(11)
     run.font.bold = True
     run.font.color.rgb = COLOR_PRIMARY
+    
+    # Add crisp, elegant bottom border accent line (#2E75B6) under section header
+    pBdr = parse_xml(r'<w:pBdr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:bottom w:val="single" w:sz="6" w:space="3" w:color="2E75B6"/></w:pBdr>')
+    p._p.get_or_add_pPr().append(pBdr)
     return p
 
 def add_bullet(doc, bold_prefix, text):
