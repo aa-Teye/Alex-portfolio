@@ -1,13 +1,13 @@
 export const experience = [
   {
-    date: '2023 — Now',
+    date: '2023 - Present',
     role: 'Research Assistant',
     company: 'University of Ghana · Prof. Kofi Sarpong Adu-Manu',
     desc: 'Deep learning research using spatio-temporal graph transformer architectures for water distribution infrastructure monitoring. Hands-on PyTorch work across preprocessing, training, and evaluation pipelines.',
     tags: ['PyTorch', 'Graph ML', 'Computer Vision'],
   },
   {
-    date: '2023 — Now',
+    date: '2023 - Present',
     role: 'Head, Media Systems & IT Unit',
     company: 'Overcomers Nation Church',
     desc: 'Lead media, broadcast, and IT infrastructure teams. Designed and built multiple web and mobile applications for church operations and member engagement.',
@@ -31,7 +31,7 @@ export const experience = [
     date: 'Ongoing',
     role: 'Teaching Assistant · AI Instructor',
     company: 'UoG · Dept. of Computer Science',
-    desc: 'Teaching the Applied AI Practical Tools and Applications short course — prompt engineering, AI workflows, and practical tooling for researchers, students, and professionals.',
+    desc: 'Teaching the Applied AI Practical Tools and Applications short course, covering prompt engineering, AI workflows, and practical tooling for researchers, students, and professionals.',
     tags: ['Applied AI', 'Prompt Eng'],
   },
   {

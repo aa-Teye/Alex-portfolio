@@ -4,7 +4,7 @@ import { ALEXBOT_SYSTEM } from '../../data/meta';
 const INITIAL_MESSAGES = [
   {
     role: 'bot',
-    text: "Hi! I'm AlexBot. Ask me anything about Alex — his skills, experience, projects, or how to get in touch.",
+    text: "Hi! I'm AlexBot. Ask me anything about Alex, his skills, experience, projects, or how to get in touch.",
   },
 ];
 

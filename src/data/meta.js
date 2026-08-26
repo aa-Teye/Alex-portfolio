@@ -1,7 +1,7 @@
 export const meta = {
   name: 'Alex Teye Ametepey',
-  title: 'Backend Architect & Python Developer',
-  tagline: "I build production systems that aren't just stable — they're built to scale. Backend architecture, AI platforms, and media systems engineering.",
+  title: 'Full-Stack & Backend Architect',
+  tagline: "I build production systems that aren't just stable, they're built to scale. Backend architecture, AI platforms, and media systems engineering.",
   available: true,
   email: 'alexteyeametepey@gmail.com',
   github: 'https://github.com/aa-Teye',
@@ -12,17 +12,17 @@ export const meta = {
 };
 
 export const typewriterTitles = [
-  'Backend Architect',
-  'Python Developer',
+  'Full-Stack Engineer',
+  'Systems Architect',
+  'Backend Developer',
   'AI/ML Engineer',
-  'Systems Builder',
 ];
 
 export const aboutPhilosophy =
-  "My philosophy is that growth is an engineering problem. Whether I'm optimizing high-concurrency backends or developing Graph Neural Networks, my goal is to build systems that aren't just stable — they're built to scale.";
+  "My philosophy is that growth is an engineering problem. Whether I'm optimizing high-concurrency backends or developing Graph Neural Networks, my goal is to build systems that aren't just stable, they're built to scale.";
 
 export const aboutBio = [
-  "I'm a Backend Architect with a <strong>BSc in Information Technology</strong> from the University of Ghana and a growing focus on machine learning and computer vision. I work at the intersection of research and production — turning deep learning ideas into systems that actually ship.",
+  "I'm a Full-Stack Software Engineer & Systems Architect with a <strong>BSc in Information Technology</strong> from the University of Ghana and a specialized focus on AI, Machine Learning, and Computer Vision. I work at the intersection of research and production, turning deep learning ideas into systems that ship.",
   'Currently a <strong>Research Assistant</strong> at UoG under Prof. Kofi Sarpong Adu-Manu, building spatio-temporal graph models for water infrastructure. I also teach an <accent>Applied AI</accent> short course at UoG\'s Department of Computer Science, lead media & IT at Overcomers Nation Church, and run DATS, a tech education venture.',
 ];
 

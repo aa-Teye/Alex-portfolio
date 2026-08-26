@@ -31,7 +31,7 @@ export default function App() {
       <Spotlight />
       <ScrollProgress />
 
-      {/* Mobile layout — visible only on small screens */}
+      {/* Mobile layout, visible only on small screens */}
       <div className="mobile-only" style={{ position: 'relative', zIndex: 2 }}>
         <MobileHeader />
         <main style={{ padding: '0 1.5rem 4rem' }}>
@@ -44,7 +44,7 @@ export default function App() {
         </main>
       </div>
 
-      {/* Desktop layout — visible only on large screens */}
+      {/* Desktop layout, visible only on large screens */}
       <div
         className="desktop-only page-wrap"
         style={{

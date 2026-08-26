@@ -159,7 +159,7 @@ export default function FaqBot() {
               ))}
             </div>
 
-            {/* quick questions — always visible, scrollable */}
+            {/* quick questions, always visible, scrollable */}
             <div
               style={{
                 borderTop: '1px solid var(--border)',

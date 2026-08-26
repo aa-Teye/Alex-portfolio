@@ -52,7 +52,7 @@ export const websites = [
   },
   {
     title: 'ONC SPS',
-    description: 'Shepherd reporting system for Overcomers Nation Church — tracks and logs all activities of shepherds across the church.',
+    description: 'Shepherd reporting system for Overcomers Nation Church, tracking and logging all shepherd activities across the church.',
     link: 'https://github.com/aa-Teye/ONC-SPS',
     stack: ['HTML', 'CSS', 'JavaScript'],
   },
@@ -64,19 +64,19 @@ export const websites = [
   },
   {
     title: 'Korbly Investment Partners',
-    description: 'Professional website for Korbly Investment Partners — showcasing investment services, portfolio, and firm contact.',
+    description: 'Professional website for Korbly Investment Partners, showcasing investment services, portfolio, and firm contact.',
     link: 'https://github.com/aa-Teye/korbly',
     stack: ['JavaScript', 'CSS'],
   },
   {
     title: 'PropCollect',
-    description: 'Property rate collection platform for local authorities — digitising the process of tracking and managing property rates in Ghana.',
+    description: 'Property rate collection platform for local authorities, digitising the process of tracking and managing property rates in Ghana.',
     link: 'https://github.com/aa-Teye/Prop_collect',
     stack: ['HTML', 'CSS', 'JavaScript'],
   },
   {
     title: 'Samuel & Rebecca',
-    description: 'Digital wedding brochure — a personalised event site for a wedding celebration.',
+    description: 'Digital wedding brochure: a personalised event site for a wedding celebration.',
     link: 'https://github.com/aa-Teye/samuel1_rebecca1_brochure',
     stack: ['JavaScript', 'CSS'],
   },
