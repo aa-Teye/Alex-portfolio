@@ -1,114 +1,73 @@
 # Alex Teye Ametepey
-**Backend Architect & Systems Engineer**
+**Full-Stack Software Engineer & Systems Architect**
 
-📍 Accra, Ghana | ✉️ alexteyeametepey@gmail.com | 📱 +233 54 904 4977  
-🌐 [GitHub](https://github.com/aa-Teye) | 💼 [LinkedIn](https://www.linkedin.com/in/alex-ametepey-1123a3205)
-
----
-
-## Executive Summary
-Results-driven Backend Architect & Systems Engineer with a **BSc in Information Technology** from the University of Ghana. Specialized in designing high-concurrency distributed backends, real-time streaming architectures, and productionizing Graph Neural Networks (GNNs). Proven track record leading backend development for high-stakes healthcare applications (StrokeNet), distributed ticketing engines handling 10k+ concurrent users (VelocityPass), and campus financial systems. Passionate about engineering systems that are built to scale.
+Accra, Ghana | alexteyeametepey@gmail.com | 0549044977  
+[GitHub](https://github.com/aa-Teye) | [LinkedIn](https://www.linkedin.com/in/alex-ametepey-1123a3205) | [Portfolio](https://alex-portfolio-sooty.vercel.app)
 
 ---
 
-## Core Competencies & Technical Skills
+## Professional Summary
+Results-driven Full-Stack Software Engineer and Systems Architect with a strong track record of leading technical teams to deliver end-to-end enterprise platforms, mobile applications, and automated growth systems. Transitioning a background in machine learning and backend architecture into comprehensive full-stack development to solve complex operational challenges. Currently pursuing an MSc in Financial Engineering to integrate quantitative data modeling into production-grade software architectures.
 
-* **Backend Engineering**: Python, FastAPI, PostgreSQL, Redis (Distributed Locks/Caching), Celery, RabbitMQ, Apache Kafka, TimescaleDB, Pydantic v2, REST APIs, WebSockets, WebRTC, Socket.IO, Async/Await
-* **AI & Machine Learning**: PyTorch, PyTorch Geometric (PyG), Graph Neural Networks (GNNs), Computer Vision, Spatio-Temporal Graph Transformers, Model Training & Evaluation, Prompt Engineering, AI Microservices
-* **DevOps & Infrastructure**: Docker, Docker Compose, Multi-stage Builds, AWS S3, AWS CloudFront, GitHub Actions (CI/CD), Linux Administration, Vercel
-* **Frontend & Mobile**: React, React Native, TypeScript, JavaScript (ES6+), Tailwind CSS, Framer Motion, HTML5/CSS3, Vite
-* **Media & Systems Engineering**: vMix API, WebRTC Streaming, OBS, Broadcast Infrastructure, Live Media Automation, Audio Engineering
-* **Engineering Leadership**: Agile/Scrum, Sprint Planning, Git Workflow, Technical Mentorship, Code Reviews, Jira
+---
+
+## Technical Skills
+* **Languages**: Python, JavaScript (ES6+), Java, SQL, HTML5, CSS3
+* **Frontend & Mobile**: React, Next.js, Astro, Vite, Tailwind CSS, Cross-Platform Mobile Development (React Native), Electron
+* **Backend & Architecture**: FastAPI, RESTful API Design, System Design, JWT Authentication, Redis (Caching & Queues)
+* **Databases & Storage**: Neon (Serverless PostgreSQL), PostgreSQL, SQLite, Relational Schema Design
+* **DevOps & Workflows**: Vercel, Render, Git, GitHub, Jira, Agile Sprint Planning
+* **Media Systems**: Live Broadcast Routing (vMix)
+
+---
+
+## Key Full-Stack & System Architecture Projects
+* **Ghana HIVdr Platform (Ongoing)**: Lead the full-stack architecture and data synchronization pipelines for secure, real-time health-tech reporting and record tracking.
+* **Enterprise ERP & Custom CMS Solutions**: Architected multi-tenant database schemas, automated operational workflows, and role-based access control (RBAC) systems across diverse client requirements.
+* **Automated Examination Management System**: Built a secure assessment engine supporting automated grading logic, audit logging, and encrypted academic record handling.
+* **Church Management & Operations System (SPS)**: Engineered an integrated platform for database administration, member tracking, and automated service coordination.
+* **UGDS System**: Led the complete full-stack architecture, API endpoint specifications, and database performance optimization as Lead Engineer and Full-Stack Developer.
 
 ---
 
 ## Professional Experience
 
-### **Research Assistant** | University of Ghana (Under Prof. Kofi Sarpong Adu-Manu)
-*2023 — Present | Accra, Ghana*
-* Conduct research on **Spatio-Temporal Graph Transformer** architectures for water distribution infrastructure monitoring and leak detection.
-* Engineered the **DiTEC preprocessing pipeline** with two-pass normalization, producing exact-dimension feature tensors for deep learning models.
-* Developed **Transferable Foundation GNNs** using PyTorch Geometric, optimizing training pipelines to achieve a **40% reduction in model convergence time**.
+### **Software Developer (Contract)** | Aréte Forge
+*Ongoing*
+* Architect and deploy comprehensive full-stack solutions, engineering seamless experiences from responsive web platforms to mobile applications.
+* Maintain modular backend microservices using Python and FastAPI, bridging APIs with modern frontend interfaces.
 
-### **Backend Developer (Contract)** | Meditel Inc.
-*2023 — Present | Remote / Accra, Ghana*
-* **Lead Backend Developer** on **StrokeNet**, an emergency stroke response network connecting patients, doctors, and ambulances across Web, Mobile, Desktop, and Smartwatches.
-* Architected real-time communication pipelines using **WebRTC** and **Socket.IO** for low-latency emergency signaling and alert routing.
-* Built an automated AI assessment pipeline using **FastAPI**, **Celery**, and **AWS S3** to process medical imaging and dispatch instant alerts to medical staff.
+### **Backend Developer (Contract)** | Meditel
+*Ongoing*
+* Design and deploy secure RESTful endpoints and high-performance backend services using Python and FastAPI.
+* Collaborate closely with frontend engineers to integrate backend services seamlessly into React-based applications.
 
-### **Software Developer** | AreteForge
-*2023 — Present | Accra, Ghana*
-* Develop production-grade backend features in Python for high-performance enterprise applications.
-* Collaborate in cross-functional Agile teams using Git and Jira for sprint planning and continuous deployment.
+### **Growth Engineer (Contract)** | WAICA
+*Ongoing*
+* Design and implement automated customer acquisition funnels, technical marketing systems, and digital growth campaigns.
+* Leverage data analytics and automation tools to optimize conversion rates and expand digital brand presence.
 
-### **Teaching Assistant & Applied AI Instructor** | University of Ghana (Dept. of Computer Science)
-*2024 — Present | Accra, Ghana*
-* Instructor for the **Applied AI Practical Tools and Applications** short course, teaching prompt engineering, AI workflow design, and practical AI tooling to students, researchers, and industry professionals.
+### **Head of IT & Media Systems** | Overcomers Nation Church (ONC)
+*2023 — Present*
+* Direct IT operations, advanced AV media broadcasting systems, and internal technical infrastructure.
+* Develop custom full-stack web and mobile applications to automate administrative workflows, community engagement, and digital production.
 
-### **Head, Media Systems & IT Unit** | Overcomers Nation Church
-*2023 — Present | Accra, Ghana*
-* Lead broadcast engineering, IT infrastructure, and web/mobile development for church operations.
-* Built custom broadcast automation software connecting React Native mobile interfaces to vMix via WebSockets, enabling real-time remote live switching at 60fps.
-
-### **Digital Marketer & Growth Strategist (Remote)** | WAICA
-*2023 — Present | Remote*
-* Execute data-driven digital growth campaigns, content strategy, and audience engagement across online channels.
-
----
-
-## Featured Engineering Projects
-
-### **StrokeNet — Real-Time Response Network** *(Meditel Inc.)*
-* **Stack**: FastAPI, WebRTC, Socket.IO, Celery, AWS S3, PostgreSQL
-* Architected high-availability backend connecting patients, emergency personnel, and doctors in real time.
-* Decoupled heavy AI medical imaging inference from main API threads using Celery worker queues.
-
-### **VelocityPass — High-Throughput Event Ticketing Engine**
-* **Stack**: FastAPI, Redis, PostgreSQL, Docker Compose
-* Designed for 10k+ concurrent users with zero race conditions using **Redis distributed locks** and PostgreSQL row-level locking (`SELECT FOR UPDATE`).
-* Implemented Unit of Work transaction patterns and deployed multi-stage non-root Docker containers.
-
-### **UG SmartWallet — Campus Financial Ledger**
-* **Stack**: FastAPI, PostgreSQL, Pydantic v2
-* Implemented a double-entry ledger system guaranteeing zero financial data corruption or money creation.
-* Enforced strict idempotency-key validation to prevent double-spending from network retries and duplicate QR scans.
-
-### **Dominion Media API — Audio Streaming Engine**
-* **Stack**: FastAPI, Python Async Generators, AWS S3, AWS CloudFront
-* Built memory-efficient audio streaming pipelines handling thousands of concurrent listeners.
-* Offloaded heavy bandwidth operations to AWS CloudFront using secure presigned URLs.
-
-### **QuantData Pipeline — Financial Data Ingestion API**
-* **Stack**: Python, TimescaleDB, Pydantic v2, Rust-backed validation
-* High-frequency financial pipeline executing async bulk-inserts of thousands of market ticks per second into TimescaleDB hypertables.
-
-### **Symptom Checker Microservice**
-* **Stack**: FastAPI, Celery, RabbitMQ, Redis, Docker
-* Decoupled AI diagnostic inference from gateway services using Celery and RabbitMQ, maintaining 99.9% API uptime under traffic surges.
-
-### **Fraud Detection Real-Time Pipeline**
-* **Stack**: FastAPI, Apache Kafka, Redis, Machine Learning
-* Built event-driven fraud detection streaming architecture analyzing financial transactions via Kafka in under 50ms.
+### **Research Assistant** | University of Ghana
+*2023 — Present*
+* Conduct deep learning research under Prof. Kofi Sarpong Adu-Manu focusing on spatio-temporal graph transformer networks.
+* Build automated data pipelines and evaluate model training benchmarks to support advanced AI infrastructure monitoring.
 
 ---
 
 ## Education
-
-**Bachelor of Science (BSc) in Information Technology**  
-*University of Ghana, Legon* — Graduated 2025  
-* **Key Focus**: Software Engineering, Database Systems, Computer Networks, Applied Artificial Intelligence.
+* **MSc in Financial Engineering** | WorldQuant University (USA) | *Ongoing*
+* **BSc in Information Technology** | University of Ghana, Legon | *Graduated 2025*
 
 ---
 
-## Research & Publications (In Progress)
-
-* **Transferable Foundation GNNs**: PyTorch Geometric benchmark study on transferable Graph Neural Networks, reducing convergence time by 40%.
-* **Spatio-Temporal Water Network Graph Transformer**: Deep learning infrastructure monitoring pipeline for water distribution networks.
-
----
-
-## Contact & Links
-* **Email**: alexteyeametepey@gmail.com
-* **WhatsApp/Phone**: +233 54 904 4977
-* **GitHub**: [github.com/aa-Teye](https://github.com/aa-Teye)
-* **LinkedIn**: [linkedin.com/in/alex-ametepey-1123a3205](https://www.linkedin.com/in/alex-ametepey-1123a3205)
+## References
+| Name | Role / Organization | Contact Info |
+| :--- | :--- | :--- |
+| **Professor Kofi Sarpong Adu-Manu** | Dept. of Computer Science, University of Ghana | kaysarpsnr@gmail.com / 0244602374 |
+| **Alex Quao, PhD** | CEO, Aréte Forge | 0592199757 / 0249221772 |
+| **Dr. Ebenezer Okronipa** | Pharmacist | 0200994446 |

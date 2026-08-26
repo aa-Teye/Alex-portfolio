@@ -214,12 +214,23 @@
       line-height: 1.45;
     }
 
-    .tech-stack {
-      display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.775rem;
-      color: var(--text-muted);
-      margin-top: 0.25rem;
+    table.ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+    }
+
+    table.ref-table th, table.ref-table td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      font-size: 0.86rem;
+      text-align: left;
+    }
+
+    table.ref-table th {
+      background: var(--bg);
+      color: var(--primary);
+      font-weight: 700;
     }
 
     @media print {
@@ -255,47 +266,48 @@
 
   <div class="no-print-bar">
     <div><strong>Alex Teye Ametepey - Curriculum Vitae</strong></div>
-    <button class="btn-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    <button class="btn-print" onclick="window.print()">Print / Save as PDF</button>
   </div>
 
   <div class="cv-container">
     <header>
       <h1>Alex Teye Ametepey</h1>
-      <div class="subtitle">Backend Architect & Systems Engineer</div>
+      <div class="subtitle">Full-Stack Software Engineer & Systems Architect</div>
       <div class="contact-bar">
-        <span class="contact-item">📍 Accra, Ghana</span>
-        <span class="contact-item">✉️ <a href="mailto:alexteyeametepey@gmail.com">alexteyeametepey@gmail.com</a></span>
-        <span class="contact-item">📱 +233 54 904 4977</span>
-        <span class="contact-item">🌐 <a href="https://github.com/aa-Teye" target="_blank">github.com/aa-Teye</a></span>
-        <span class="contact-item">💼 <a href="https://www.linkedin.com/in/alex-ametepey-1123a3205" target="_blank">LinkedIn</a></span>
+        <span class="contact-item">Accra, Ghana</span>
+        <span class="contact-item"><a href="mailto:alexteyeametepey@gmail.com">alexteyeametepey@gmail.com</a></span>
+        <span class="contact-item">0549044977</span>
+        <span class="contact-item"><a href="https://github.com/aa-Teye" target="_blank">github.com/aa-Teye</a></span>
+        <span class="contact-item"><a href="https://www.linkedin.com/in/alex-ametepey-1123a3205" target="_blank">LinkedIn</a></span>
+        <span class="contact-item"><a href="https://alex-portfolio-sooty.vercel.app" target="_blank">Portfolio</a></span>
       </div>
     </header>
 
     <section>
-      <h2>Executive Summary</h2>
+      <h2>Professional Summary</h2>
       <p class="summary-text">
-        Backend Architect & Systems Engineer with a <strong>BSc in Information Technology</strong> from the University of Ghana. Specialized in high-concurrency distributed backends, real-time streaming architectures, and productionizing Graph Neural Networks (GNNs). Proven track record architecting critical healthcare networks (StrokeNet), distributed ticketing engines handling 10k+ concurrent users (VelocityPass), and campus financial systems. Built to scale.
+        Results-driven Full-Stack Software Engineer and Systems Architect with a strong track record of leading technical teams to deliver end-to-end enterprise platforms, mobile applications, and automated growth systems. Transitioning a background in machine learning and backend architecture into comprehensive full-stack development to solve complex operational challenges. Currently pursuing an MSc in Financial Engineering to integrate quantitative data modeling into production-grade software architectures.
       </p>
     </section>
 
     <section>
-      <h2>Technical Competencies</h2>
+      <h2>Technical Skills</h2>
       <div class="skills-grid">
         <div class="skill-cat">
-          <div class="skill-cat-title">Backend Architecture</div>
-          <div class="skill-list">Python, FastAPI, PostgreSQL, Redis, Celery, RabbitMQ, Kafka, TimescaleDB, Pydantic v2, REST, WebSockets, WebRTC</div>
+          <div class="skill-cat-title">Languages & Core</div>
+          <div class="skill-list">Python, JavaScript (ES6+), Java, SQL, HTML5, CSS3</div>
         </div>
         <div class="skill-cat">
-          <div class="skill-cat-title">AI & Machine Learning</div>
-          <div class="skill-list">PyTorch, PyTorch Geometric, Graph Neural Networks (GNNs), Spatio-Temporal Models, Computer Vision, AI Microservices</div>
+          <div class="skill-cat-title">Frontend & Mobile</div>
+          <div class="skill-list">React, Next.js, Astro, Vite, Tailwind CSS, React Native, Electron</div>
         </div>
         <div class="skill-cat">
-          <div class="skill-cat-title">DevOps & Cloud</div>
-          <div class="skill-list">Docker, Docker Compose, Multi-stage Builds, AWS S3, AWS CloudFront, Git, GitHub Actions (CI/CD), Linux</div>
+          <div class="skill-cat-title">Backend & Architecture</div>
+          <div class="skill-list">FastAPI, RESTful API Design, System Design, JWT Auth, Redis</div>
         </div>
         <div class="skill-cat">
-          <div class="skill-cat-title">Systems & Leadership</div>
-          <div class="skill-list">React, React Native, TypeScript, vMix API, Agile/Scrum, Git Workflow, Technical Leadership, Mentorship</div>
+          <div class="skill-cat-title">Databases & DevOps</div>
+          <div class="skill-list">Neon (Serverless Postgres), PostgreSQL, SQLite, Vercel, Render, Git, Jira</div>
         </div>
       </div>
     </section>
@@ -306,112 +318,114 @@
       <div class="job-item">
         <div class="job-header">
           <div>
+            <span class="job-title">Software Developer (Contract)</span> — <span class="job-company">Aréte Forge</span>
+          </div>
+          <span class="job-date">Ongoing</span>
+        </div>
+        <ul class="bullets">
+          <li>Architect and deploy comprehensive full-stack solutions, engineering seamless experiences from responsive web platforms to mobile applications.</li>
+          <li>Maintain modular backend microservices using Python and FastAPI, bridging APIs with modern frontend interfaces.</li>
+        </ul>
+      </div>
+
+      <div class="job-item">
+        <div class="job-header">
+          <div>
+            <span class="job-title">Backend Developer (Contract)</span> — <span class="job-company">Meditel</span>
+          </div>
+          <span class="job-date">Ongoing</span>
+        </div>
+        <ul class="bullets">
+          <li>Design and deploy secure RESTful endpoints and high-performance backend services using Python and FastAPI.</li>
+          <li>Collaborate closely with frontend engineers to integrate backend services seamlessly into React-based applications.</li>
+        </ul>
+      </div>
+
+      <div class="job-item">
+        <div class="job-header">
+          <div>
+            <span class="job-title">Growth Engineer (Contract)</span> — <span class="job-company">WAICA</span>
+          </div>
+          <span class="job-date">Ongoing</span>
+        </div>
+        <ul class="bullets">
+          <li>Design and implement automated customer acquisition funnels, technical marketing systems, and digital growth campaigns.</li>
+        </ul>
+      </div>
+
+      <div class="job-item">
+        <div class="job-header">
+          <div>
+            <span class="job-title">Head of IT & Media Systems</span> — <span class="job-company">Overcomers Nation Church</span>
+          </div>
+          <span class="job-date">2023 — Present</span>
+        </div>
+        <ul class="bullets">
+          <li>Direct IT operations, AV broadcasting systems, and internal technical infrastructure. Develop custom web & mobile apps.</li>
+        </ul>
+      </div>
+
+      <div class="job-item">
+        <div class="job-header">
+          <div>
             <span class="job-title">Research Assistant</span> — <span class="job-company">University of Ghana</span>
           </div>
           <span class="job-date">2023 — Present</span>
         </div>
         <ul class="bullets">
-          <li>Conduct deep learning research on Spatio-Temporal Graph Transformers for water distribution infrastructure monitoring under Prof. Kofi Sarpong Adu-Manu.</li>
-          <li>Engineered the DiTEC normalization and feature tensor extraction pipeline for PyTorch Geometric models.</li>
-          <li>Developed Transferable Foundation GNN architectures, reducing model convergence time by 40%.</li>
-        </ul>
-      </div>
-
-      <div class="job-item">
-        <div class="job-header">
-          <div>
-            <span class="job-title">Lead Backend Developer (Contract)</span> — <span class="job-company">Meditel Inc.</span>
-          </div>
-          <span class="job-date">Ongoing</span>
-        </div>
-        <ul class="bullets">
-          <li>Lead backend architect for <strong>StrokeNet</strong>, a real-time emergency stroke response platform connecting patients, ambulances, and hospital staff.</li>
-          <li>Architected WebRTC and Socket.IO real-time alert routing infrastructure for instant emergency notifications.</li>
-          <li>Built automated AI medical imaging assessment pipelines utilizing FastAPI, Celery queues, and AWS S3 storage.</li>
-        </ul>
-      </div>
-
-      <div class="job-item">
-        <div class="job-header">
-          <div>
-            <span class="job-title">Software Developer</span> — <span class="job-company">AreteForge</span>
-          </div>
-          <span class="job-date">Ongoing</span>
-        </div>
-        <ul class="bullets">
-          <li>Engineered production-grade Python backend microservices following Agile/Scrum methodologies with Git and Jira.</li>
-        </ul>
-      </div>
-
-      <div class="job-item">
-        <div class="job-header">
-          <div>
-            <span class="job-title">Applied AI Instructor & TA</span> — <span class="job-company">University of Ghana (Dept. of CS)</span>
-          </div>
-          <span class="job-date">Ongoing</span>
-        </div>
-        <ul class="bullets">
-          <li>Instruct short courses in Applied AI, practical tooling, prompt engineering, and workflow optimization.</li>
-        </ul>
-      </div>
-
-      <div class="job-item">
-        <div class="job-header">
-          <div>
-            <span class="job-title">Head, Media Systems & IT Unit</span> — <span class="job-company">Overcomers Nation Church</span>
-          </div>
-          <span class="job-date">2023 — Present</span>
-        </div>
-        <ul class="bullets">
-          <li>Direct media broadcast teams and IT operations; built real-time WebSocket live switching apps integrating React Native with vMix at 60fps.</li>
-        </ul>
-      </div>
-    </div>
-
-    <section style="margin-top: 1.5rem;">
-      <h2>Featured Engineering Projects</h2>
-      
-      <div class="project-item">
-        <div class="job-title">StrokeNet — Real-Time Response Ecosystem</div>
-        <div class="tech-stack">Stack: FastAPI, WebRTC, Socket.IO, Celery, AWS S3</div>
-        <ul class="bullets">
-          <li>Multi-platform real-time nervous system connecting patients, doctors, and emergency drivers.</li>
-        </ul>
-      </div>
-
-      <div class="project-item">
-        <div class="job-title">VelocityPass — Distributed Event Ticketing Engine</div>
-        <div class="tech-stack">Stack: FastAPI, Redis, PostgreSQL, Docker</div>
-        <ul class="bullets">
-          <li>Eliminated race conditions during 10k+ concurrent user spikes using Redis distributed locks and PostgreSQL row-level locks.</li>
-        </ul>
-      </div>
-
-      <div class="project-item">
-        <div class="job-title">UG SmartWallet — Campus Financial Ledger</div>
-        <div class="tech-stack">Stack: FastAPI, PostgreSQL, Pydantic v2</div>
-        <ul class="bullets">
-          <li>Double-entry financial system enforcing strict transaction idempotency and zero money corruption.</li>
-        </ul>
-      </div>
-
-      <div class="project-item">
-        <div class="job-title">Dominion Media API — High-Concurrency Streaming</div>
-        <div class="tech-stack">Stack: FastAPI, Python Async Generators, AWS S3, CloudFront</div>
-        <ul class="bullets">
-          <li>Decoupled audio streaming architecture utilizing CloudFront presigned URLs for thousands of listeners.</li>
+          <li>Conduct deep learning research under Prof. Kofi Sarpong Adu-Manu focusing on spatio-temporal graph transformer networks.</li>
         </ul>
       </div>
     </section>
 
     <section>
       <h2>Education</h2>
-      <div class="job-header">
-        <div>
-          <span class="job-title">BSc in Information Technology</span> — <span class="job-company">University of Ghana</span>
+      <div class="job-item">
+        <div class="job-header">
+          <div>
+            <span class="job-title">MSc in Financial Engineering</span> — <span class="job-company">WorldQuant University (USA)</span>
+          </div>
+          <span class="job-date">Ongoing</span>
         </div>
-        <span class="job-date">Graduated 2025</span>
       </div>
+      <div class="job-item">
+        <div class="job-header">
+          <div>
+            <span class="job-title">BSc in Information Technology</span> — <span class="job-company">University of Ghana</span>
+          </div>
+          <span class="job-date">Graduated 2025</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>References</h2>
+      <table class="ref-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role / Organization</th>
+            <th>Contact Info</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Professor Kofi Sarpong Adu-Manu</strong></td>
+            <td>Dept. of Computer Science, University of Ghana</td>
+            <td>kaysarpsnr@gmail.com / 0244602374</td>
+          </tr>
+          <tr>
+            <td><strong>Alex Quao, PhD</strong></td>
+            <td>CEO, Aréte Forge</td>
+            <td>0592199757 / 0249221772</td>
+          </tr>
+          <tr>
+            <td><strong>Dr. Ebenezer Okronipa</strong></td>
+            <td>Pharmacist</td>
+            <td>0200994446</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
   </div>
 
