@@ -54,7 +54,11 @@ function CategoryCard({ cat, index }) {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 + i * 0.03, duration: 0.25 }}
-              whileHover={{ background: cat.color + '22', borderColor: cat.color + '60', color: cat.color }}
+              whileHover={{ scale: 1.05, background: cat.color + '30', borderColor: cat.color, color: '#FFFFFF' }}
+              onClick={() => {
+                const el = document.getElementById('contact');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="mono"
               style={{
                 fontSize: '0.72rem',
@@ -63,7 +67,7 @@ function CategoryCard({ cat, index }) {
                 border: '1px solid var(--border)',
                 padding: '4px 10px',
                 borderRadius: '6px',
-                cursor: 'default',
+                cursor: 'pointer',
                 transition: 'all 0.2s',
               }}
             >

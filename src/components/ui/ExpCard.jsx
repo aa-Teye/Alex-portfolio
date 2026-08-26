@@ -2,10 +2,18 @@ import { motion } from 'framer-motion';
 import FadeIn from './FadeIn';
 
 export default function ExpCard({ item, index }) {
+  const handleClick = () => {
+    const el = document.getElementById('contact');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <FadeIn delay={index * 0.08}>
       <motion.div
-        whileHover={{ x: 4, backgroundColor: 'rgba(20,28,40,0.6)' }}
+        onClick={handleClick}
+        whileHover={{ x: 6, backgroundColor: 'rgba(20,28,40,0.85)' }}
         style={{
           display: 'grid',
           gridTemplateColumns: '130px 1fr',
@@ -14,7 +22,7 @@ export default function ExpCard({ item, index }) {
           borderRadius: '10px',
           border: '1px solid transparent',
           margin: '0 -1.25rem 0.5rem',
-          cursor: 'default',
+          cursor: 'pointer',
           position: 'relative',
           overflow: 'hidden',
           transition: 'background-color 0.25s',
@@ -47,8 +55,9 @@ export default function ExpCard({ item, index }) {
         </div>
 
         <div>
-          <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#E8EDF4' }}>
+          <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#E8EDF4', display: 'flex', alignItems: 'center', gap: '6px' }}>
             {item.role}
+            <span style={{ fontSize: '0.8rem', color: '#5C6A82' }}>↗</span>
           </div>
           <div style={{ fontSize: '0.88rem', color: '#CCD6E6', fontWeight: 500, marginTop: '1px' }}>
             {item.company}

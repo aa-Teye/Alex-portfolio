@@ -8,10 +8,18 @@ const statusStyle = {
 };
 
 export default function ProjectCard({ proj, index }) {
+  const handleClick = () => {
+    const el = document.getElementById('contact');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <FadeIn delay={index * 0.07}>
       <motion.article
-        whileHover={{ x: 4, backgroundColor: 'rgba(20,28,40,0.6)' }}
+        onClick={handleClick}
+        whileHover={{ x: 6, backgroundColor: 'rgba(20,28,40,0.85)' }}
         style={{
           display: 'block',
           padding: '1.5rem',
@@ -22,7 +30,7 @@ export default function ProjectCard({ proj, index }) {
           position: 'relative',
           overflow: 'hidden',
           textDecoration: 'none',
-          cursor: 'default',
+          cursor: 'pointer',
           transition: 'background-color 0.25s',
         }}
       >
@@ -40,8 +48,9 @@ export default function ProjectCard({ proj, index }) {
         />
 
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem' }}>
-          <div style={{ fontSize: '1.05rem', fontWeight: 600, color: '#E8EDF4' }}>
+          <div style={{ fontSize: '1.05rem', fontWeight: 600, color: '#E8EDF4', display: 'flex', alignItems: 'center', gap: '6px' }}>
             {proj.title}
+            <span style={{ fontSize: '0.8rem', color: '#5C6A82' }}>↗</span>
           </div>
           <span
             className="mono"
