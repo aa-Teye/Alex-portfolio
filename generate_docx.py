@@ -116,8 +116,8 @@ def add_heading(doc, text):
 
 def add_bullet(doc, bold_prefix, text):
     p = doc.add_paragraph(style='List Paragraph')
-    p.paragraph_format.space_before = Pt(2)
-    p.paragraph_format.space_after = Pt(2)
+    p.paragraph_format.space_before = Pt(1)
+    p.paragraph_format.space_after = Pt(1.5)
     p.paragraph_format.line_spacing = 1.15
     p.paragraph_format.left_indent = Inches(0.25)
     
