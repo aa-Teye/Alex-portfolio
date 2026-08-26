@@ -11,9 +11,10 @@ export default function SpyNav() {
     e.preventDefault();
     const el = document.getElementById(id);
     if (el) {
-      const yOffset = -40;
-      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (window.history.pushState) {
+        window.history.pushState(null, '', `#${id}`);
+      }
     }
   };
 
